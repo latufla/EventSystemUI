@@ -11,6 +11,9 @@ month = Month(now.date())
 pass_card = PassCard(now.date(), 31)
 month.apply_pass_card(pass_card)
 
+event0 = Event("Event0", datetime(2017, 12, 6))
+month.add_event(event0)
+
 event = Event("Event1 mother of dragons", now + timedelta(days=2))
 month.add_event(event)
 

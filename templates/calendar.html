@@ -43,7 +43,7 @@
 
         {% else %}
 
-        {% if calendar_day.label %}
+        {% if calendar_day.label and calendar_day.label.color %}
         {% set c_style = "background-color:" + calendar_day.label.color + ";" %}
         {% else %}
         {% set c_style = "" %}
@@ -53,14 +53,16 @@
             {% if calendar_day.event %}
             <a href="#">
                 <p>{{calendar_day.date.day}}</p>
-                <p class="center aligned"> {{calendar_day.event.short_name}}</p>
-                <p>&nbsp;</p>
+                <div style="width:50px; height:50px;">
+                    {% if calendar_day.label.icon %}
+                    <i class="{{calendar_day.label.icon}}" style="color: {{calendar_day.label.icon_color}};"> </i>
+                    {% endif %}
+                </div>
             </a>
             {% else %}
             <a>
                 <p>{{calendar_day.date.day}}</p>
-                <p>&nbsp;</p>
-                <p>&nbsp;</p>
+                <div style="width:50px; height:50px;"></div>
             </a>
             {% endif %}
         </td>
@@ -75,9 +77,9 @@
         <th colspan="7">
             <table>
                 <tr>
-                    {% for label in labels %}
-                    <td style="background-color: {{ label.color }}; height:30px;">
-                        {{ label.type_name }}
+                    {% for lb in labels %}
+                    <td style="background-color: {{ lb.color }}; height:30px;">
+                        {{ lb.type_name }}
                     </td>
                     {% endfor %}
                 </tr>

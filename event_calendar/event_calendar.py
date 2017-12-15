@@ -21,18 +21,19 @@ class MonthL11nKeys:
 
 
 class Label:
-    def __init__(self, type_name: str, color: str, icon: str):
+    def __init__(self, type_name: str, color: str = None, icon: str = None, icon_color: str = None):
         self.type_name = type_name
         self.color = color
         self.icon = icon
+        self.icon_color = icon_color
 
 
 class Labels:
-    PASS_CARD = Label("pass_card", "#ADD8E6", "")
-    EVENT = Label("event", "#ADFF2F", "")
-    TOURNAMENT = Label("tournament", "#FFD700", "")
+    PASS_CARD = Label("PassCard", "#ADD8E6")
+    LESSON = Label("Lesson", "darkcyan", "big book icon", "white")
+    TOURNAMENT = Label("Tournament", "darkorange", "big trophy icon", "white")
 
-    ALL = [PASS_CARD, EVENT, TOURNAMENT]
+    ALL = [PASS_CARD, LESSON, TOURNAMENT]
 
 
 class PassCard:
@@ -75,7 +76,7 @@ class Event:
     Special event, displaying on calendar
     """
 
-    def __init__(self, name: str, start_datetime: datetime, label: Label = Labels.EVENT):
+    def __init__(self, name: str, start_datetime: datetime, label: Label = Labels.LESSON):
         self.name = name
         self.start_datetime = start_datetime
 
