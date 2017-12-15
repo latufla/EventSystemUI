@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.2.13/dist/semantic.min.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.2.13/dist/semantic.min.js"></script>
+</head>
+<body>
+
+<table class="ui celled unstackable fixed table">
+    <thead>
+    <tr>
+        <th colspan="7">
+            <div class="ui right floated menu">
+                <a class="icon item">
+                    <i class="left chevron icon"></i>
+                </a>
+                <div class="item">{{month.name}} {{month.year}}</div>
+                <a class="icon item">
+                    <i class="right chevron icon"></i>
+                </a>
+            </div>
+        </th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for i in range(0, 5) %}
+    <tr>
+        {% for j in range(0, 7) %}
+
+        {% set calendar_day = month.days[i * 7 + j] %}
+
+        {% if month.id != calendar_day.date.month %}
+        <td class="disabled right aligned">
+            <p>{{calendar_day.date.day}}</p>
+            <p>&nbsp;</p>
+            <p>&nbsp;</p>
+        </td>
+
+        {% else %}
+
+        {% if calendar_day.label %}
+        {% set c_style = "background-color:" + calendar_day.label.color + ";" %}
+        {% else %}
+        {% set c_style = "" %}
+        {% endif %}
+
+        <td class="selectable right aligned" style="{{c_style}}">
+            {% if calendar_day.event %}
+            <a href="#">
+                <p>{{calendar_day.date.day}}</p>
+                <p class="center aligned"> {{calendar_day.event.short_name}}</p>
+                <p>&nbsp;</p>
+            </a>
+            {% else %}
+            <a>
+                <p>{{calendar_day.date.day}}</p>
+                <p>&nbsp;</p>
+                <p>&nbsp;</p>
+            </a>
+            {% endif %}
+        </td>
+        {% endif %}
+
+        {% endfor %}
+    </tr>
+    {% endfor %}
+    </tbody>
+    <tfoot>
+    <tr>
+        <th colspan="7">
+            <table>
+                <tr>
+                    {% for label in labels %}
+                    <td style="background-color: {{ label.color }}; height:30px;">
+                        {{ label.type_name }}
+                    </td>
+                    {% endfor %}
+                </tr>
+            </table>
+
+        </th>
+    </tr>
+    </tfoot>
+</table>
+
+</body>
+</html>
