@@ -1,4 +1,5 @@
-<a id="{{day.date.month|string + '_' + day.date.day|string}}" href="#" data-html=
+{% set day_id = day.date.month|string + '_' + day.date.day|string %}
+<a id="{{day_id}}" href="#" data-html=
         "
         {% for e in day.events %}
         <div>
@@ -21,9 +22,41 @@
     </div>
 </a>
 
+
+{% set day_modal = day_id + "_modal" %}
+<div id="{{day_modal}}" class="ui tiny modal">
+    <div class="header">{{day.date.day|string + " " + month.name + " " + month.year|string}}</div>
+    <div class="content">
+        {% for e in day.events %}
+        <div>
+            <h4>
+            <a href="{{e.url}}">
+            {{e.name}}
+            </a>
+            </h4>
+        </div>
+        <div>
+            {{e.description_short}}
+        </div>
+        <div>
+            {{e.start_time}}
+        </div>
+        <p>
+            {% endfor %}
+    </div>
+    <div class="actions">
+        <div class="ui primary ok button">Ok</div>
+    </div>
+</div>
+
+
 <script>
-    $('#{{day.date.month|string + "_" + day.date.day|string}}').popup({
+    $('#{{day_id}}').popup({
         on: 'hover',
         position: 'top center'
+    });
+
+    $("#{{day_id}}").click(function () {
+        $('#{{day_modal}}').modal('show');
     });
 </script>

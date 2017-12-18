@@ -84,11 +84,14 @@ class Event:
     Special event, displaying on calendar
     """
 
-    def __init__(self, name: str, start_datetime: datetime, label: Label = Labels.LESSON):
+    def __init__(self, name: str, start_datetime: datetime, label: Label = Labels.LESSON, url=""):
         self.name = name
         self.start_datetime = start_datetime
 
         self.label = label
+        self.url = url
+
+        self.description_short = ""
 
         self.participant_list = []
         self.max_participants = 10

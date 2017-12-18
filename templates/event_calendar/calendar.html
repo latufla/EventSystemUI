@@ -54,7 +54,7 @@
         <td class="selectable right aligned" style="{{c_style}}">
             {% if day_event_icons|length > 0 %}
 
-            {% with day=calendar_day, icons=day_event_icons%}
+            {% with month=month, day=calendar_day, icons=day_event_icons%}
             {% include "event_calendar/includes/_event_day.html" %}
             {% endwith %}
 
