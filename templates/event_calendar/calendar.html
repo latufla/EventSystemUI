@@ -35,10 +35,9 @@
         {% set calendar_day = month.days[i * 7 + j] %}
 
         {% if month.id != calendar_day.date.month %}
-        <td class="disabled right aligned">
-            <p>{{calendar_day.date.day}}</p>
-            <p>&nbsp;</p>
-            <p>&nbsp;</p>
+        <td class="selectable disabled right aligned">
+            <p>{{calendar_day.date.day}}&nbsp;</p>
+            <div style="width:50px; height:50px;"></div>
         </td>
 
         {% else %}
@@ -54,17 +53,13 @@
         <td class="selectable right aligned" style="{{c_style}}">
             {% if day_event_icons|length > 0 %}
 
-            {% with month=month, day=calendar_day, icons=day_event_icons%}
+            {% with month=month, day=calendar_day%}
             {% include "event_calendar/includes/_event_day.html" %}
             {% endwith %}
 
             {% else %}
-
-            <a>
-                <p>{{calendar_day.date.day}}</p>
+                <p>{{calendar_day.date.day}}&nbsp;</p>
                 <div style="width:50px; height:50px;"></div>
-            </a>
-
             {% endif %}
         </td>
         {% endif %}

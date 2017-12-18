@@ -1,5 +1,5 @@
 {% set day_id = day.date.month|string + '_' + day.date.day|string %}
-<a id="{{day_id}}" href="#" data-html=
+<div id="{{day_id}}" data-html=
         "
         {% for e in day.events %}
         <div>
@@ -11,16 +11,16 @@
         <p>
         {% endfor %}
 ">
-    <p>{{day.date.day}}</p>
+    <p>{{day.date.day}}&nbsp;</p>
 
     <div class="ui grid">
-        {% for item in icons%}
+        {% for e in day.events%}
         <div class="three wide column">
-            <i class="{{item.name}}" style="color:{{item.color}};"> </i>
+            <i class="{{e.label.icon.name}}" style="color:{{e.label.icon.color}};"> </i>
         </div>
         {% endfor %}
     </div>
-</a>
+</div>
 
 
 {% set day_modal = day_id + "_modal" %}
