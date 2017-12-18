@@ -20,6 +20,9 @@ class MonthL11nKeys:
     ALL = [JANUARY, FEBRUARY, MARCH, APRIL, MAY, JUNE, JULY, AUGUST, SEPTEMBER, OCTOBER, NOVEMBER, DECEMBER]
 
 
+def trim_microseconds(t):
+    return t - timedelta(microseconds=t.microsecond)
+
 class Icon:
     def __init__(self, name: str, color: str):
         self.name = name
@@ -101,7 +104,7 @@ class Event:
 
     @property
     def start_time(self):
-        return self.start_datetime.time()
+        return trim_microseconds(self.start_datetime).time()
 
     @property
     def short_name(self):
@@ -162,3 +165,4 @@ class Day:
 
     def get_event_icons(self):
         return list(map(lambda e: e.label.icon, self.events))
+

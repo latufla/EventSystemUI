@@ -53,22 +53,18 @@
 
         <td class="selectable right aligned" style="{{c_style}}">
             {% if day_event_icons|length > 0 %}
-            <a href="#">
-                <p>{{calendar_day.date.day}}</p>
 
-                <div class="ui grid">
-                    {% for item in day_event_icons%}
-                    <div class="three wide column">
-                        <i class="{{item.name}}" style="color:{{item.color}};"> </i>
-                    </div>
-                    {% endfor %}
-                </div>
-            </a>
+            {% with day=calendar_day, icons=day_event_icons%}
+            {% include "event_calendar/includes/_event_day.html" %}
+            {% endwith %}
+
             {% else %}
+
             <a>
                 <p>{{calendar_day.date.day}}</p>
                 <div style="width:50px; height:50px;"></div>
             </a>
+
             {% endif %}
         </td>
         {% endif %}
@@ -96,4 +92,5 @@
 </table>
 
 </body>
+
 </html>

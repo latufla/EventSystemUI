@@ -1,0 +1,29 @@
+<a id="{{day.date.month|string + '_' + day.date.day|string}}" href="#" data-html=
+        "
+        {% for e in day.events %}
+        <div>
+            {{e.name}}
+        </div>
+        <div>
+            {{e.start_time}}
+        </div>
+        <p>
+        {% endfor %}
+">
+    <p>{{day.date.day}}</p>
+
+    <div class="ui grid">
+        {% for item in icons%}
+        <div class="three wide column">
+            <i class="{{item.name}}" style="color:{{item.color}};"> </i>
+        </div>
+        {% endfor %}
+    </div>
+</a>
+
+<script>
+    $('#{{day.date.month|string + "_" + day.date.day|string}}').popup({
+        on: 'hover',
+        position: 'top center'
+    });
+</script>

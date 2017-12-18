@@ -11,16 +11,16 @@ month = Month(now.date())
 pass_card = PassCard(now.date(), 31)
 month.apply_pass_card(pass_card)
 
-event0 = Event("Event0", datetime(2017, 12, 6))
+event0 = Event("Lesson 1: Greeting", datetime(2017, 12, 6))
 month.add_event(event0)
 
-event = Event("Event1 mother of dragons", now + timedelta(days=2))
+event = Event("Lesson 2: Red card", now + timedelta(days=2))
 month.add_event(event)
 
-event2 = Event("Event2 mother of dragons", now + timedelta(days=7), Labels.TOURNAMENT)
+event2 = Event("Tournament: novice", now + timedelta(days=7), Labels.TOURNAMENT)
 month.add_event(event2)
 
-event1 = Event("Lesson mother of dragons", now + timedelta(days=7), Labels.LESSON)
+event1 = Event("Lesson 3: Black card", now + timedelta(days=7))
 month.add_event(event1)
 
 
@@ -30,7 +30,7 @@ env = Environment(
     autoescape=select_autoescape(['html', 'xml'])
 )
 
-template = env.get_template('calendar.html')
+template = env.get_template('event_calendar/calendar.html')
 html = template.render(month=month, labels=Labels.ALL)
 
 with open("PyTest.html", "w") as file:
