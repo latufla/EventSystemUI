@@ -43,20 +43,25 @@
 
         {% else %}
 
-        {% if calendar_day.label and calendar_day.label.color %}
-        {% set c_style = "background-color:" + calendar_day.label.color + ";" %}
+        {% set day_color = calendar_day.get_color()%}
+        {% set day_event_icons = calendar_day.get_event_icons()%}
+        {% if day_color %}
+        {% set c_style = "background-color:" + day_color + ";" %}
         {% else %}
         {% set c_style = "" %}
         {% endif %}
 
         <td class="selectable right aligned" style="{{c_style}}">
-            {% if calendar_day.event %}
+            {% if day_event_icons|length > 0 %}
             <a href="#">
                 <p>{{calendar_day.date.day}}</p>
-                <div style="width:50px; height:50px;">
-                    {% if calendar_day.label.icon %}
-                    <i class="{{calendar_day.label.icon}}" style="color: {{calendar_day.label.icon_color}};"> </i>
-                    {% endif %}
+
+                <div class="ui grid">
+                    {% for item in day_event_icons%}
+                    <div class="three wide column">
+                        <i class="{{item.name}}" style="color:{{item.color}};"> </i>
+                    </div>
+                    {% endfor %}
                 </div>
             </a>
             {% else %}

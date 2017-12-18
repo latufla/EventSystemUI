@@ -20,6 +20,10 @@ month.add_event(event)
 event2 = Event("Event2 mother of dragons", now + timedelta(days=7), Labels.TOURNAMENT)
 month.add_event(event2)
 
+event1 = Event("Lesson mother of dragons", now + timedelta(days=7), Labels.LESSON)
+month.add_event(event1)
+
+
 from jinja2 import Environment, PackageLoader, select_autoescape
 env = Environment(
     loader=PackageLoader('PyTest', 'templates'),
