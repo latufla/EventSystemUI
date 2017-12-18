@@ -27,22 +27,25 @@
 <div id="{{day_modal}}" class="ui tiny modal">
     <div class="header">{{day.date.day|string + " " + month.name + " " + month.year|string}}</div>
     <div class="content">
-        {% for e in day.events %}
-        <div>
-            <h4>
-            <a href="{{e.url}}">
-            {{e.name}}
-            </a>
-            </h4>
-        </div>
-        <div>
-            {{e.description_short}}
-        </div>
-        <div>
-            {{e.start_time}}
-        </div>
-        <p>
+        <div class="ui list">
+            {% for e in day.events %}
+            <div class="item">
+                <i class="{{e.label.icon.name}}"></i>
+                <div class="content">
+                    <a href="{{e.url}}" class="header">
+                        {{e.name}}
+                    </a>
+                    <div class="description">
+                        {{e.description_short}}
+                    </div>
+                    <div class="extra">
+                        {{e.start_time}}
+                    </div>
+                </div>
+            </div>
             {% endfor %}
+
+        </div>
     </div>
     <div class="actions">
         <div class="ui primary ok button">Ok</div>

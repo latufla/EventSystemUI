@@ -1,6 +1,4 @@
-from calendar import Calendar, TextCalendar
-from datetime import datetime, date, timedelta
-from enum import Enum
+from datetime import datetime, timedelta
 
 from event_calendar.event_calendar import Labels, Month, Day, Event, PassCard
 
@@ -27,10 +25,8 @@ event2 = Event("Tournament: novice", now + timedelta(days=7, hours=4), Labels.TO
 event2.description_short = "First year novices are welcome"
 month.add_event(event2)
 
-
-
-
 from jinja2 import Environment, PackageLoader, select_autoescape
+
 env = Environment(
     loader=PackageLoader('PyTest', 'templates'),
     autoescape=select_autoescape(['html', 'xml'])
