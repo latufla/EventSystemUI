@@ -98,6 +98,8 @@ class Event:
 
         self.wait_list = []
 
+        self.priority = 0
+
     def __repr__(self):
         return "{name: " + str(self.name) + "}"
 
@@ -159,7 +161,8 @@ class Day:
 
     def get_color(self):
         if len(self.events) > 0:
-            return self.events[0].label.color
+            events_by_priority = sorted(self.events, key=lambda e: e.priority)
+            return events_by_priority[0].label.color
 
         if self.label:
             return self.label.color

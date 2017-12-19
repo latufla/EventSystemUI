@@ -18,12 +18,15 @@ event.description_short = "Being a good red citizen"
 month.add_event(event)
 
 event21 = Event("Lesson 3: Black card", now + timedelta(days=7), Labels.LESSON, "http://ok.ru")
+event21.priority = 2
 event21.description_short = "Being a good black citizen"
 month.add_event(event21)
 
 event2 = Event("Tournament: novice", now + timedelta(days=7, hours=4), Labels.TOURNAMENT, "http://vk.com")
+event2.priority = 1
 event2.description_short = "First year novices are welcome"
 month.add_event(event2)
+
 
 from jinja2 import Environment, PackageLoader, select_autoescape
 
