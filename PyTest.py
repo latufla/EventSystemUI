@@ -35,7 +35,7 @@ env = Environment(
     autoescape=select_autoescape(['html', 'xml'])
 )
 
-template = env.get_template('event_calendar/calendar.html')
+template = env.get_template('example.html')
 html = template.render(month=month, labels=Labels.ALL)
 
 with open("PyTest.html", "w") as file:
