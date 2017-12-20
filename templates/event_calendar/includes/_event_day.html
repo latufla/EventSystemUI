@@ -27,7 +27,7 @@
 <div id="{{day_modal}}" class="ui tiny modal">
     <div class="header">{{day.date.day|string + " " + month.name + " " + month.year|string}}</div>
     <div class="content">
-        <div class="ui small relaxed selection list">
+        <div class="ui small relaxed list">
             {% for e in day.events %}
             <div class="item">
                 <i class="{{e.label.icon.name}}"></i>
