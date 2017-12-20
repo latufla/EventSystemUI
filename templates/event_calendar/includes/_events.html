@@ -1,23 +1,23 @@
 <div style="min-width:{{min_width}}px; max-width:{{max_width}}px;">
     <div class="ui right floated menu">
-        <a class="icon item">
+        <a class="icon item" href="{{calendar_month.prev_url}}">
             <i class="left chevron icon"></i>
         </a>
-        <div class="item">{{month.name}} {{month.year}}</div>
-        <a class="icon item">
+        <div class="item">{{calendar_month.month.name}} {{calendar_month.month.year}}</div>
+        <a class="icon item" href="{{calendar_month.next_url}}">
             <i class="right chevron icon"></i>
         </a>
     </div>
 
-    <div class="ui tabular secondary menu">
+    <div class="ui tabular menu">
         <a class="active item" data-tab="calendar">Calendar</a>
         <a class="item" data-tab="event_list">Events</a>
     </div>
 
-    <div class="ui active tab" data-tab="calendar" style="min-width:700px; max-width: 1000px;">
+    <div class="ui active tab" data-tab="calendar">
         {% include 'event_calendar/includes/_event_calendar.html' %}
     </div>
-    <div class="ui tab" data-tab="event_list" style="min-width:700px; max-width: 1000px;">
+    <div class="ui tab" data-tab="event_list">
         {% include 'event_calendar/includes/_event_list.html' %}
     </div>
 </div>

@@ -1,6 +1,6 @@
 <div class="ui large relaxed celled list">
 
-   {% for e in month.events%}
+   {% for e in calendar_month.month.events%}
         {% with event_id=loop.index|string, event=e %}
         {% include 'event_calendar/includes/_event_list_item.html' %}
         {% endwith %}

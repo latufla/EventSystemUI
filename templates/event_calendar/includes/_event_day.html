@@ -1,7 +1,7 @@
-{% set day_id = day.date.month|string + '_' + day.date.day|string %}
+{% set day_id = calendar_day.date.month|string + '_' + calendar_day.date.day|string %}
 <div id="{{day_id}}" data-html=
         "
-        {% for e in day.events %}
+        {% for e in calendar_day.events %}
         <div>
             {{e.title}}
         </div>
@@ -11,10 +11,10 @@
         <p>
         {% endfor %}
 ", style="cursor: pointer;">
-    <p>{{day.date.day}}&nbsp;</p>
+    <p>{{calendar_day.date.day}}&nbsp;</p>
 
     <div class="ui grid">
-        {% for e in day.events%}
+        {% for e in calendar_day.events%}
         <div class="three wide column">
             <i class="{{e.label.icon.name}}" style="color:{{e.label.icon.color}};"> </i>
         </div>
@@ -25,10 +25,10 @@
 
 {% set day_modal = day_id + "_modal" %}
 <div id="{{day_modal}}" class="ui tiny modal">
-    <div class="header">{{day.date.day|string + " " + month.name + " " + month.year|string}}</div>
+    <div class="header">{{calendar_day.date.day|string + " " + calendar_month.month.name + " " + calendar_month.month.year|string}}</div>
     <div class="content">
         <div class="ui small relaxed list">
-            {% for e in day.events %}
+            {% for e in calendar_day.events %}
             <div class="item">
                 <i class="{{e.label.icon.name}}"></i>
                 <div class="content">

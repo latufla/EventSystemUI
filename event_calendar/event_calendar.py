@@ -23,6 +23,7 @@ class MonthL11nKeys:
 def trim_microseconds(t):
     return t - timedelta(microseconds=t.microsecond)
 
+
 class Icon:
     def __init__(self, name: str, color: str):
         self.name = name
@@ -35,6 +36,7 @@ class Label:
         self.color = color
 
         self.icon = icon
+
 
 class Labels:
     PASS_CARD = Label("PassCard", "#ADD8E6")
@@ -175,4 +177,3 @@ class Day:
 
     def get_event_icons(self):
         return list(map(lambda e: e.label.icon, self.events))
-

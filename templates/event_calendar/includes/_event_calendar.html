@@ -4,9 +4,9 @@
     <tr class="top aligned">
         {% for j in range(0, 7) %}
 
-        {% set calendar_day = month.days[i * 7 + j] %}
+        {% set calendar_day = calendar_month.month.days[i * 7 + j] %}
 
-        {% if month.id != calendar_day.date.month %}
+        {% if calendar_month.month.id != calendar_day.date.month %}
         <td class="selectable disabled right aligned">
             <p>{{calendar_day.date.day}}&nbsp;</p>
             <div style="width:50px; height:50px;"></div>
@@ -25,7 +25,7 @@
         <td class="selectable right aligned" style="{{c_style}}">
             {% if day_event_icons|length > 0 %}
 
-            {% with month=month, day=calendar_day%}
+            {% with calendar_month=calendar_month, calendar_day=calendar_day%}
             {% include "event_calendar/includes/_event_day.html" %}
             {% endwith %}
 
@@ -45,7 +45,7 @@
         <th colspan="7">
             <table>
                 <tr>
-                    {% for lb in labels %}
+                    {% for lb in calendar_month.label_config %}
                     <td style="background-color: {{ lb.color }}; height:30px;">
                         {{ lb.type_name }}
                     </td>
