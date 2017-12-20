@@ -37,7 +37,6 @@ class Label:
 
         self.icon = icon
 
-
 class Labels:
     PASS_CARD = Label("PassCard", "#ADD8E6")
     LESSON = Label("Lesson", "darkcyan", Icon("big book icon", "white"))
@@ -45,6 +44,16 @@ class Labels:
 
     ALL = [PASS_CARD, LESSON, TOURNAMENT]
 
+class EventState:
+    def __init__(self, type_name: str, color: str = None):
+        self.type_name = type_name
+        self.color = color
+        
+class EventStates:
+    NOT_READY = EventState("NotReady", "grey")
+    STARTED = EventState("Started","green")
+    FINISHED = EventState("Finished", "orange")
+    REWARDED = EventState("Rewarded", "red")
 
 class PassCard:
     """
@@ -99,6 +108,8 @@ class Event:
         self.max_participants = 10
 
         self.wait_list = []
+
+        self.state = EventStates.NOT_READY
 
         self.priority = 0
 

@@ -1,10 +1,28 @@
-<div id={{"event_" + event_id}} class="item">
-        <i class="{{event.label.icon.name}}"></i>
+<div class="item">
+    <p></p>
+    <i class="{{event.label.icon.name}}"></i>
 
-        <div class="content">
-            <a class="header" href="{{event.link}}">{{ event.title }}</a>
-            <div class="description">{{event.description_short}}</div>
+    <div class="content">
+        <a class="header" href="{{event.link}}">{{ event.title }}</a>
+        <div class="description">{{event.description_short}}</div>
+
+        <p></p>
+        <div class="ui {{event.state.color }} label">
+            {{event.state.type_name}}
         </div>
 
+        <div class="ui label">
+            Starts at: {{event.start_time}}
+        </div>
+
+        <div class="ui label">
+            Participate: {{event.participant_list|length}} / {{event.max_participants}}
+        </div>
+
+        <div class="ui label">
+            Waiting: {{event.wait_list|length}}
+        </div>
+
+    </div>
 </div>
 

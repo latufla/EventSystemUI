@@ -1,7 +1,7 @@
 from datetime import datetime, timedelta
 
 from event_calendar.calendar_month import CalendarMonth
-from event_calendar.event_calendar import Labels, Month, Day, Event, PassCard
+from event_calendar.event_calendar import Labels, Month, Day, Event, PassCard, EventStates
 
 now = datetime.utcnow()
 
@@ -12,6 +12,7 @@ month.apply_pass_card(pass_card)
 
 event0 = Event("Lesson 1: Greeting", datetime(2017, 12, 6), Labels.LESSON, "http://google.com")
 event0.description_short = "I`ll teach u how to say hello"
+event0.state = EventStates.FINISHED
 month.add_event(event0)
 
 event = Event("Lesson 2: Red card", now + timedelta(days=2), Labels.LESSON, "http://ya.com")

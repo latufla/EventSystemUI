@@ -10,7 +10,7 @@
         </div>
         <p>
         {% endfor %}
-", style="cursor: pointer;">
+" , style="cursor: pointer;">
     <p>{{calendar_day.date.day}}&nbsp;</p>
 
     <div class="ui grid">
@@ -25,23 +25,40 @@
 
 {% set day_modal = day_id + "_modal" %}
 <div id="{{day_modal}}" class="ui tiny modal">
-    <div class="header">{{calendar_day.date.day|string + " " + calendar_month.month.name + " " + calendar_month.month.year|string}}</div>
+    <div class="header">{{calendar_day.date.day|string + " " + calendar_month.month.name + " " +
+        calendar_month.month.year|string}}
+    </div>
     <div class="content">
         <div class="ui small relaxed list">
-            {% for e in calendar_day.events %}
+
+            {% for event in calendar_day.events %}
             <div class="item">
-                <i class="{{e.label.icon.name}}"></i>
+
+                <i class="{{event.label.icon.name}}"></i>
+
                 <div class="content">
-                    <a href="{{e.url}}" class="header">
-                        {{e.title}}
-                    </a>
-                    <div class="description">
-                        {{e.description_short}}
+
+                    <a class="header" href="{{event.link}}">{{ event.title }}</a>
+                    <div class="description">{{event.description_short}}</div>
+
+                    <p></p>
+                    <div class="ui {{event.state.color }} label">
+                        {{event.state.type_name}}
                     </div>
-                    <div class="extra">
-                        {{e.start_time}}
+
+                    <div class="ui label">
+                        Starts at: {{event.start_time}}
+                    </div>
+
+                    <div class="ui label">
+                        Participate: {{event.participant_list|length}} / {{event.max_participants}}
+                    </div>
+
+                    <div class="ui label">
+                        Waiting: {{event.wait_list|length}}
                     </div>
                 </div>
+
             </div>
             {% endfor %}
 
