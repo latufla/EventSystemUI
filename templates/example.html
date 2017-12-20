@@ -11,9 +11,22 @@
 </head>
 <body>
 
-{% include 'event_calendar/includes/_calendar.html' %}
+<div class="ui top attached tabular secondary menu">
+    <a class="active item" data-tab="calendar">Calendar</a>
+    <a class="item" data-tab="event_list">Events</a>
+</div>
+<div class="ui bottom attached active tab segment" data-tab="calendar">
+    {% include 'event_calendar/includes/_calendar.html' %}
+</div>
+<div class="ui bottom attached tab segment" data-tab="event_list">
+    {% include 'event_calendar/includes/_event_list.html' %}
+</div>
 
 
 </body>
+
+<script>
+    $('.menu .item').tab();
+</script>
 
 </html>

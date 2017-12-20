@@ -84,8 +84,8 @@ class Event:
     Special event, displaying on calendar
     """
 
-    def __init__(self, name: str, start_datetime: datetime, label: Label = Labels.LESSON, url=""):
-        self.name = name
+    def __init__(self, title: str, start_datetime: datetime, label: Label = Labels.LESSON, url=""):
+        self.title = title
         self.start_datetime = start_datetime
 
         self.label = label
@@ -101,7 +101,7 @@ class Event:
         self.priority = 0
 
     def __repr__(self):
-        return "{name: " + str(self.name) + "}"
+        return "{name: " + str(self.title) + "}"
 
     @property
     def start_date(self):
@@ -113,7 +113,7 @@ class Event:
 
     @property
     def short_name(self):
-        return self.name[0:6] + " ..."
+        return self.title[0:6] + " ..."
 
 
 class Month:
@@ -134,10 +134,14 @@ class Month:
 
         self.today = next(d for d in self.days if d.date == now)
 
+        self.events = []
+
     def add_event(self, event: Event):
         event_start_date = event.start_datetime.date()
         event_day = next(d for d in self.days if d.date == event_start_date)
         event_day.events.append(event)
+
+        self.events.append(event)
 
     def apply_pass_card(self, pass_card: PassCard):
         for d in self.days:

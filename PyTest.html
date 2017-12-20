@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Example</title>
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.2.13/dist/semantic.min.css">
 
@@ -11,7 +11,12 @@
 </head>
 <body>
 
-<table class="ui celled unstackable fixed table">
+<div class="ui top attached tabular secondary menu">
+    <a class="active item" data-tab="calendar">Calendar</a>
+    <a class="item" data-tab="event_list">Events</a>
+</div>
+<div class="ui bottom attached active tab segment" data-tab="calendar">
+    <table class="ui celled unstackable fixed table">
     <thead>
     <tr>
         <th colspan="7">
@@ -203,7 +208,7 @@
         "
         
         <div>
-            Lesson 1: Greeting
+            
         </div>
         <div>
             00:00:00
@@ -529,7 +534,7 @@
         
         
 
-        <td class="selectable right aligned" style="background-color:#ADD8E6;">
+        <td class="selectable right aligned" style="">
             
                 <p>19&nbsp;</p>
                 <div style="width:50px; height:50px;"></div>
@@ -569,77 +574,10 @@
         
         
 
-        <td class="selectable right aligned" style="background-color:darkcyan;">
+        <td class="selectable right aligned" style="background-color:#ADD8E6;">
             
-
-            
-            
-<div id="12_21" data-html=
-        "
-        
-        <div>
-            Lesson 2: Red card
-        </div>
-        <div>
-            04:47:01
-        </div>
-        <p>
-        
-", style="cursor: pointer;">
-    <p>21&nbsp;</p>
-
-    <div class="ui grid">
-        
-        <div class="three wide column">
-            <i class="big book icon" style="color:white;"> </i>
-        </div>
-        
-    </div>
-</div>
-
-
-
-<div id="12_21_modal" class="ui tiny modal">
-    <div class="header">21 December 2017</div>
-    <div class="content">
-        <div class="ui list">
-            
-            <div class="item">
-                <i class="big book icon"></i>
-                <div class="content">
-                    <a href="http://ya.com" class="header">
-                        Lesson 2: Red card
-                    </a>
-                    <div class="description">
-                        Being a good red citizen
-                    </div>
-                    <div class="extra">
-                        04:47:01
-                    </div>
-                </div>
-            </div>
-            
-
-        </div>
-    </div>
-    <div class="actions">
-        <div class="ui primary ok button">Ok</div>
-    </div>
-</div>
-
-
-<script>
-    $('#12_21').popup({
-        on: 'hover',
-        position: 'top center'
-    });
-
-    $("#12_21").click(function () {
-        $('#12_21_modal').modal('show');
-    });
-</script>
-            
-
+                <p>21&nbsp;</p>
+                <div style="width:50px; height:50px;"></div>
             
         </td>
         
@@ -656,10 +594,77 @@
         
         
 
-        <td class="selectable right aligned" style="background-color:#ADD8E6;">
+        <td class="selectable right aligned" style="background-color:darkcyan;">
             
-                <p>22&nbsp;</p>
-                <div style="width:50px; height:50px;"></div>
+
+            
+            
+<div id="12_22" data-html=
+        "
+        
+        <div>
+            
+        </div>
+        <div>
+            07:01:24
+        </div>
+        <p>
+        
+", style="cursor: pointer;">
+    <p>22&nbsp;</p>
+
+    <div class="ui grid">
+        
+        <div class="three wide column">
+            <i class="big book icon" style="color:white;"> </i>
+        </div>
+        
+    </div>
+</div>
+
+
+
+<div id="12_22_modal" class="ui tiny modal">
+    <div class="header">22 December 2017</div>
+    <div class="content">
+        <div class="ui list">
+            
+            <div class="item">
+                <i class="big book icon"></i>
+                <div class="content">
+                    <a href="http://ya.com" class="header">
+                        Lesson 2: Red card
+                    </a>
+                    <div class="description">
+                        Being a good red citizen
+                    </div>
+                    <div class="extra">
+                        07:01:24
+                    </div>
+                </div>
+            </div>
+            
+
+        </div>
+    </div>
+    <div class="actions">
+        <div class="ui primary ok button">Ok</div>
+    </div>
+</div>
+
+
+<script>
+    $('#12_22').popup({
+        on: 'hover',
+        position: 'top center'
+    });
+
+    $("#12_22").click(function () {
+        $('#12_22_modal').modal('show');
+    });
+</script>
+            
+
             
         </td>
         
@@ -740,104 +745,10 @@
         
         
 
-        <td class="selectable right aligned" style="background-color:darkorange;">
+        <td class="selectable right aligned" style="background-color:#ADD8E6;">
             
-
-            
-            
-<div id="12_26" data-html=
-        "
-        
-        <div>
-            Lesson 3: Black card
-        </div>
-        <div>
-            04:47:01
-        </div>
-        <p>
-        
-        <div>
-            Tournament: novice
-        </div>
-        <div>
-            08:47:01
-        </div>
-        <p>
-        
-", style="cursor: pointer;">
-    <p>26&nbsp;</p>
-
-    <div class="ui grid">
-        
-        <div class="three wide column">
-            <i class="big book icon" style="color:white;"> </i>
-        </div>
-        
-        <div class="three wide column">
-            <i class="big trophy icon" style="color:white;"> </i>
-        </div>
-        
-    </div>
-</div>
-
-
-
-<div id="12_26_modal" class="ui tiny modal">
-    <div class="header">26 December 2017</div>
-    <div class="content">
-        <div class="ui list">
-            
-            <div class="item">
-                <i class="big book icon"></i>
-                <div class="content">
-                    <a href="http://ok.ru" class="header">
-                        Lesson 3: Black card
-                    </a>
-                    <div class="description">
-                        Being a good black citizen
-                    </div>
-                    <div class="extra">
-                        04:47:01
-                    </div>
-                </div>
-            </div>
-            
-            <div class="item">
-                <i class="big trophy icon"></i>
-                <div class="content">
-                    <a href="http://vk.com" class="header">
-                        Tournament: novice
-                    </a>
-                    <div class="description">
-                        First year novices are welcome
-                    </div>
-                    <div class="extra">
-                        08:47:01
-                    </div>
-                </div>
-            </div>
-            
-
-        </div>
-    </div>
-    <div class="actions">
-        <div class="ui primary ok button">Ok</div>
-    </div>
-</div>
-
-
-<script>
-    $('#12_26').popup({
-        on: 'hover',
-        position: 'top center'
-    });
-
-    $("#12_26").click(function () {
-        $('#12_26_modal').modal('show');
-    });
-</script>
-            
-
+                <p>26&nbsp;</p>
+                <div style="width:50px; height:50px;"></div>
             
         </td>
         
@@ -854,10 +765,104 @@
         
         
 
-        <td class="selectable right aligned" style="background-color:#ADD8E6;">
+        <td class="selectable right aligned" style="background-color:darkorange;">
             
-                <p>27&nbsp;</p>
-                <div style="width:50px; height:50px;"></div>
+
+            
+            
+<div id="12_27" data-html=
+        "
+        
+        <div>
+            
+        </div>
+        <div>
+            07:01:24
+        </div>
+        <p>
+        
+        <div>
+            
+        </div>
+        <div>
+            11:01:24
+        </div>
+        <p>
+        
+", style="cursor: pointer;">
+    <p>27&nbsp;</p>
+
+    <div class="ui grid">
+        
+        <div class="three wide column">
+            <i class="big book icon" style="color:white;"> </i>
+        </div>
+        
+        <div class="three wide column">
+            <i class="big trophy icon" style="color:white;"> </i>
+        </div>
+        
+    </div>
+</div>
+
+
+
+<div id="12_27_modal" class="ui tiny modal">
+    <div class="header">27 December 2017</div>
+    <div class="content">
+        <div class="ui list">
+            
+            <div class="item">
+                <i class="big book icon"></i>
+                <div class="content">
+                    <a href="http://ok.ru" class="header">
+                        Lesson 3: Black card
+                    </a>
+                    <div class="description">
+                        Being a good black citizen
+                    </div>
+                    <div class="extra">
+                        07:01:24
+                    </div>
+                </div>
+            </div>
+            
+            <div class="item">
+                <i class="big trophy icon"></i>
+                <div class="content">
+                    <a href="http://vk.com" class="header">
+                        Tournament: novice
+                    </a>
+                    <div class="description">
+                        First year novices are welcome
+                    </div>
+                    <div class="extra">
+                        11:01:24
+                    </div>
+                </div>
+            </div>
+            
+
+        </div>
+    </div>
+    <div class="actions">
+        <div class="ui primary ok button">Ok</div>
+    </div>
+</div>
+
+
+<script>
+    $('#12_27').popup({
+        on: 'hover',
+        position: 'top center'
+    });
+
+    $("#12_27").click(function () {
+        $('#12_27_modal').modal('show');
+    });
+</script>
+            
+
             
         </td>
         
@@ -971,7 +976,72 @@
     </tr>
     </tfoot>
 </table>
+</div>
+<div class="ui bottom attached tab segment" data-tab="event_list">
+    <div class="ui large relaxed celled selection list">
+
+   
+        
+        <div id=event_1 class="item">
+        <i class="big book icon"></i>
+
+        <div class="content">
+            <a class="header" href="">Lesson 1: Greeting</a>
+            <div class="description">I`ll teach u how to say hello</div>
+        </div>
+
+</div>
+
+        
+   
+        
+        <div id=event_2 class="item">
+        <i class="big book icon"></i>
+
+        <div class="content">
+            <a class="header" href="">Lesson 2: Red card</a>
+            <div class="description">Being a good red citizen</div>
+        </div>
+
+</div>
+
+        
+   
+        
+        <div id=event_3 class="item">
+        <i class="big book icon"></i>
+
+        <div class="content">
+            <a class="header" href="">Lesson 3: Black card</a>
+            <div class="description">Being a good black citizen</div>
+        </div>
+
+</div>
+
+        
+   
+        
+        <div id=event_4 class="item">
+        <i class="big trophy icon"></i>
+
+        <div class="content">
+            <a class="header" href="">Tournament: novice</a>
+            <div class="description">First year novices are welcome</div>
+        </div>
+
+</div>
+
+        
+   
+
+</div>
+</div>
+
 
 </body>
+
+<script>
+    $('.menu .item').tab();
+</script>
 
 </html>
