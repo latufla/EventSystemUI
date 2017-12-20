@@ -1,19 +1,4 @@
-<table class="ui celled unstackable fixed table">
-    <thead>
-    <tr>
-        <th colspan="7">
-            <div class="ui right floated menu">
-                <a class="icon item">
-                    <i class="left chevron icon"></i>
-                </a>
-                <div class="item">{{month.name}} {{month.year}}</div>
-                <a class="icon item">
-                    <i class="right chevron icon"></i>
-                </a>
-            </div>
-        </th>
-    </tr>
-    </thead>
+<table class="ui celled unstackable fixed table" style="min-width:700px; max-width: 1000px;">
     <tbody>
     {% for i in range(0, 5) %}
     <tr class="top aligned">
@@ -45,8 +30,8 @@
             {% endwith %}
 
             {% else %}
-                <p>{{calendar_day.date.day}}&nbsp;</p>
-                <div style="width:50px; height:50px;"></div>
+            <p>{{calendar_day.date.day}}&nbsp;</p>
+            <div style="width:50px; height:50px;"></div>
             {% endif %}
         </td>
         {% endif %}
