@@ -1,5 +1,5 @@
 <div style="min-width:{{min_width}}px; max-width:{{max_width}}px;">
-    <div class="ui right floated menu">
+    <div id="month_navigation_menu" class="ui right floated menu">
         <a class="icon item" href="{{view.prev_url}}">
             <i class="left chevron icon"></i>
         </a>
@@ -9,26 +9,40 @@
         </a>
     </div>
 
-    <div class="ui tabular menu">
-        <a class="active item" data-tab="calendar">Calendar</a>
-        <a class="item" data-tab="event_list">Events</a>
+    <div id="content_menu" class="ui tabular menu">
+        {% set is_active = active_tab=="calendar_tab" %}
+        <div id="calendar_tab" class="{% if is_active %}active{% endif %} item" data-tab="calendar"
+             style="cursor: pointer;">Calendar
+        </div>
+
+        {% set is_active = active_tab=="event_list_tab" %}
+        <div id="event_list_tab" class="{% if is_active %}active{% endif %} item" data-tab="event_list"
+             style="cursor: pointer;">Events
+        </div>
 
         {% if view.pass_card %}
-        <a class="item" data-tab="pass_card">PassCard</a>
+        {% set is_active = active_tab=="pass_card_tab" %}
+        <div id="pass_card_tab" class="{% if is_active %}active{% endif %} item" data-tab="pass_card"
+             style="cursor: pointer;">PassCard
+        </div>
         {% endif %}
     </div>
 
-    <div class="ui active tab" data-tab="calendar">
+    {% set is_active = active_tab=="calendar_tab" %}
+    <div class="ui {% if is_active %}active{% endif %} tab" data-tab="calendar">
         {% include 'event_calendar/includes/_event_calendar.html' %}
     </div>
-    <div class="ui tab" data-tab="event_list">
+
+    {% set is_active = active_tab=="event_list_tab" %}
+    <div class="ui {% if is_active %}active{% endif %} tab" data-tab="event_list">
         {% with events=view.month.events%}
         {% include 'event_calendar/includes/_event_list.html' %}
         {% endwith %}
     </div>
 
     {% if view.pass_card %}
-    <div class="ui tab" data-tab="pass_card">
+    {% set is_active = active_tab=="pass_card_tab" %}
+    <div class="ui {% if is_active %}active{% endif %} tab" data-tab="pass_card">
         {% with pass_card=view.pass_card %}
         {% include 'event_calendar/includes/_pass_card.html' %}
         {% endwith %}
@@ -36,6 +50,28 @@
     {% endif %}
 </div>
 
+{% if active_tab=="pass_card_tab" %}
 <script>
-    $('.menu .item').tab();
+    $(document).ready(function () {
+        $('#month_navigation_menu').hide();
+    });
+</script>
+{% endif %}
+
+<script>
+    $(document).ready(function () {
+        $('#content_menu .item').tab();
+
+        $('#calendar_tab').click(function () {
+            $('#month_navigation_menu').show();
+        });
+
+        $('#event_list_tab').click(function () {
+            $('#month_navigation_menu').show()
+        });
+
+        $('#pass_card_tab').click(function () {
+            $('#month_navigation_menu').hide()
+        });
+    });
 </script>

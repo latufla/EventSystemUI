@@ -11,8 +11,7 @@
 </head>
 <body>
 
-
-{% with min_width=700, max_width=1000 %}
+{% with active_tab="calendar_tab", min_width=700, max_width=1000 %}
 {% include 'event_calendar/includes/_view.html' %}
 {% endwith %}
 

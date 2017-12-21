@@ -14,7 +14,7 @@
 
 
 <div style="min-width:700px; max-width:1000px;">
-    <div class="ui right floated menu">
+    <div id="month_navigation_menu" class="ui right floated menu">
         <a class="icon item" href="http://google.com">
             <i class="left chevron icon"></i>
         </a>
@@ -24,11 +24,26 @@
         </a>
     </div>
 
-    <div class="ui tabular menu">
-        <a class="active item" data-tab="calendar">Calendar</a>
-        <a class="item" data-tab="event_list">Events</a>
+    <div id="content_menu" class="ui tabular menu">
+        
+        <div id="calendar_tab" class="active item" data-tab="calendar"
+             style="cursor: pointer;">Calendar
+        </div>
+
+        
+        <div id="event_list_tab" class=" item" data-tab="event_list"
+             style="cursor: pointer;">Events
+        </div>
+
+        
+        
+        <div id="pass_card_tab" class=" item" data-tab="pass_card"
+             style="cursor: pointer;">PassCard
+        </div>
+        
     </div>
 
+    
     <div class="ui active tab" data-tab="calendar">
         <table class="ui celled unstackable fixed table">
     <tbody>
@@ -569,7 +584,7 @@
         
         
 
-        <td class="selectable right aligned" style="background-color:#ADD8E6;">
+        <td class="selectable right aligned" style="">
             
             <p>20&nbsp;</p>
             <div style="width:50px; height:50px;"></div>
@@ -609,24 +624,44 @@
         
         
 
+        <td class="selectable right aligned" style="background-color:#ADD8E6;">
+            
+            <p>22&nbsp;</p>
+            <div style="width:50px; height:50px;"></div>
+            
+        </td>
+        
+
+        
+
+        
+
+        
+
+        
+        
+        
+        
+        
+
         <td class="selectable right aligned" style="background-color:darkcyan;">
             
 
             
             
-<div id="12_22" data-html=
+<div id="12_23" data-html=
         "
         
         <div>
             Lesson 2: Red card
         </div>
         <div>
-            13:41:24
+            08:07:32
         </div>
         <p>
         
 " , style="cursor: pointer;">
-    <p>22&nbsp;</p>
+    <p>23&nbsp;</p>
 
     <div class="ui grid">
         
@@ -639,8 +674,8 @@
 
 
 
-<div id="12_22_modal" class="ui tiny modal">
-    <div class="header">22 December 2017
+<div id="12_23_modal" class="ui tiny modal">
+    <div class="header">23 December 2017
     </div>
     <div class="content">
         <div class="ui small relaxed list">
@@ -661,7 +696,7 @@
                     </div>
 
                     <div class="ui label">
-                        Starts at: 13:41:24
+                        Starts at: 08:07:32
                     </div>
 
                     <div class="ui label">
@@ -685,37 +720,17 @@
 
 
 <script>
-    $('#12_22').popup({
+    $('#12_23').popup({
         on: 'hover',
         position: 'top center'
     });
 
-    $("#12_22").click(function () {
-        $('#12_22_modal').modal('show');
+    $("#12_23").click(function () {
+        $('#12_23_modal').modal('show');
     });
 </script>
             
 
-            
-        </td>
-        
-
-        
-
-        
-
-        
-
-        
-        
-        
-        
-        
-
-        <td class="selectable right aligned" style="background-color:#ADD8E6;">
-            
-            <p>23&nbsp;</p>
-            <div style="width:50px; height:50px;"></div>
             
         </td>
         
@@ -796,19 +811,39 @@
         
         
 
+        <td class="selectable right aligned" style="background-color:#ADD8E6;">
+            
+            <p>27&nbsp;</p>
+            <div style="width:50px; height:50px;"></div>
+            
+        </td>
+        
+
+        
+
+        
+
+        
+
+        
+        
+        
+        
+        
+
         <td class="selectable right aligned" style="background-color:darkorange;">
             
 
             
             
-<div id="12_27" data-html=
+<div id="12_28" data-html=
         "
         
         <div>
             Lesson 3: Black card
         </div>
         <div>
-            13:41:24
+            08:07:32
         </div>
         <p>
         
@@ -816,12 +851,12 @@
             Tournament: novice
         </div>
         <div>
-            17:41:24
+            12:07:32
         </div>
         <p>
         
 " , style="cursor: pointer;">
-    <p>27&nbsp;</p>
+    <p>28&nbsp;</p>
 
     <div class="ui grid">
         
@@ -838,8 +873,8 @@
 
 
 
-<div id="12_27_modal" class="ui tiny modal">
-    <div class="header">27 December 2017
+<div id="12_28_modal" class="ui tiny modal">
+    <div class="header">28 December 2017
     </div>
     <div class="content">
         <div class="ui small relaxed list">
@@ -860,7 +895,7 @@
                     </div>
 
                     <div class="ui label">
-                        Starts at: 13:41:24
+                        Starts at: 08:07:32
                     </div>
 
                     <div class="ui label">
@@ -889,7 +924,7 @@
                     </div>
 
                     <div class="ui label">
-                        Starts at: 17:41:24
+                        Starts at: 12:07:32
                     </div>
 
                     <div class="ui label">
@@ -913,37 +948,17 @@
 
 
 <script>
-    $('#12_27').popup({
+    $('#12_28').popup({
         on: 'hover',
         position: 'top center'
     });
 
-    $("#12_27").click(function () {
-        $('#12_27_modal').modal('show');
+    $("#12_28").click(function () {
+        $('#12_28_modal').modal('show');
     });
 </script>
             
 
-            
-        </td>
-        
-
-        
-
-        
-
-        
-
-        
-        
-        
-        
-        
-
-        <td class="selectable right aligned" style="background-color:#ADD8E6;">
-            
-            <p>28&nbsp;</p>
-            <div style="width:50px; height:50px;"></div>
             
         </td>
         
@@ -1038,7 +1053,10 @@
     </tfoot>
 </table>
     </div>
-    <div class="ui tab" data-tab="event_list">
+
+    
+    <div class="ui  tab" data-tab="event_list">
+        
         <div class="ui large relaxed list">
 
     
@@ -1088,7 +1106,7 @@
         </div>
 
         <div class="ui label">
-            Starts at: 13:41:24
+            Starts at: 08:07:32
         </div>
 
         <div class="ui label">
@@ -1119,7 +1137,7 @@
         </div>
 
         <div class="ui label">
-            Starts at: 13:41:24
+            Starts at: 08:07:32
         </div>
 
         <div class="ui label">
@@ -1150,7 +1168,7 @@
         </div>
 
         <div class="ui label">
-            Starts at: 17:41:24
+            Starts at: 12:07:32
         </div>
 
         <div class="ui label">
@@ -1168,11 +1186,78 @@
     
 
 </div>
+        
+    </div>
+
+    
+    
+    <div class="ui  tab" data-tab="pass_card">
+        
+        <div>
+    Visited 1 / 8
+</div>
+
+
+<div class="ui large relaxed list">
+
+    
+    
+    <div class="item">
+    <p></p>
+    <i class="big book icon"></i>
+
+    <div class="content">
+        <a class="header" href="">Lesson 1: Greeting</a>
+        <div class="description">I`ll teach u how to say hello</div>
+
+        <p></p>
+        <div class="ui orange label">
+            Finished
+        </div>
+
+        <div class="ui label">
+            Starts at: 00:00:00
+        </div>
+
+        <div class="ui label">
+            Participate: 0 / 10
+        </div>
+
+        <div class="ui label">
+            Waiting: 0
+        </div>
+
     </div>
 </div>
 
+    
+    
+
+</div>
+
+        
+    </div>
+    
+</div>
+
+
+
 <script>
-    $('.menu .item').tab();
+    $(document).ready(function () {
+        $('#content_menu .item').tab();
+
+        $('#calendar_tab').click(function () {
+            $('#month_navigation_menu').show();
+        });
+
+        $('#event_list_tab').click(function () {
+            $('#month_navigation_menu').show()
+        });
+
+        $('#pass_card_tab').click(function () {
+            $('#month_navigation_menu').hide()
+        });
+    });
 </script>
 
 
