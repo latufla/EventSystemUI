@@ -1,23 +1,7 @@
 from datetime import datetime, date, timedelta
 from calendar import Calendar
-from enum import Enum
 
-
-class MonthL11nKeys:
-    JANUARY = "January",
-    FEBRUARY = "February",
-    MARCH = "March",
-    APRIL = "April",
-    MAY = "May",
-    JUNE = "June",
-    JULY = "July",
-    AUGUST = "August",
-    SEPTEMBER = "September"
-    OCTOBER = "October"
-    NOVEMBER = "November"
-    DECEMBER = "December"
-
-    ALL = [JANUARY, FEBRUARY, MARCH, APRIL, MAY, JUNE, JULY, AUGUST, SEPTEMBER, OCTOBER, NOVEMBER, DECEMBER]
+from event_calendar.loc import Loc
 
 
 def trim_microseconds(t):
@@ -31,17 +15,17 @@ class Icon:
 
 
 class Label:
-    def __init__(self, type_name: str, color: str = None, icon: Icon = None):
-        self.type_name = type_name
+    def __init__(self, loc_key: str, color: str = None, icon: Icon = None):
+        self.loc_key = loc_key
         self.color = color
 
         self.icon = icon
 
 
 class Labels:
-    PASS_CARD = Label("PassCard", "#ADD8E6")
-    LESSON = Label("Lesson", "darkcyan", Icon("big book icon", "white"))
-    TOURNAMENT = Label("Tournament", "darkorange", Icon("big trophy icon", "white"))
+    PASS_CARD = Label(Loc.PASS_CARD_CALENDAR_LABEL, "#ADD8E6")
+    LESSON = Label(Loc.LESSON_CALENDAR_LABEL, "darkcyan", Icon("big book icon", "white"))
+    TOURNAMENT = Label(Loc.TOURNAMENT_LABEL, "darkorange", Icon("big trophy icon", "white"))
 
     ALL = [PASS_CARD, LESSON, TOURNAMENT]
 
@@ -143,7 +127,7 @@ class Month:
 
     def __init__(self, now: date):
         self.id = now.month
-        self.name = MonthL11nKeys.ALL[self.id - 1]
+        self.loc_key = Loc.MONTHS[self.id - 1]
 
         self.year = now.year
 

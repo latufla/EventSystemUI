@@ -12,39 +12,35 @@
 <body>
 
 
-
 <div style="min-width:700px; max-width:1000px;">
     <div id="month_navigation_menu" class="ui right floated menu">
         <a class="icon item" href="http://google.com">
             <i class="left chevron icon"></i>
         </a>
-        <div class="item">December 2017</div>
+        <div class="item">december 2017</div>
         <a class="icon item" href="http://ya.com">
             <i class="right chevron icon"></i>
         </a>
     </div>
 
     <div id="content_menu" class="ui tabular menu">
-        
-        <div id="calendar_tab" class="active item" data-tab="calendar"
+        <div id="calendar_tab" class=" item"
+             data-tab="calendar"
              style="cursor: pointer;">Calendar
         </div>
 
-        
-        <div id="event_list_tab" class=" item" data-tab="event_list"
+        <div id="event_list_tab" class=" item"
+             data-tab="event_list"
              style="cursor: pointer;">Events
         </div>
 
-        
-        
-        <div id="pass_card_tab" class=" item" data-tab="pass_card"
-             style="cursor: pointer;">PassCard
+        <div id="pass_card_tab" class="active item"
+             data-tab="pass_card"
+             style="cursor: pointer;">Pass card
         </div>
-        
     </div>
 
-    
-    <div class="ui active tab" data-tab="calendar">
+    <div class="ui  tab" data-tab="calendar">
         <table class="ui celled unstackable fixed table">
     <tbody>
     
@@ -244,7 +240,7 @@
 
 
 <div id="12_6_modal" class="ui tiny modal">
-    <div class="header">6 December 2017
+    <div class="header">6 december 2017
     </div>
     <div class="content">
         <div class="ui small relaxed list">
@@ -656,7 +652,7 @@
             Lesson 2: Red card
         </div>
         <div>
-            08:07:32
+            16:26:54
         </div>
         <p>
         
@@ -675,7 +671,7 @@
 
 
 <div id="12_23_modal" class="ui tiny modal">
-    <div class="header">23 December 2017
+    <div class="header">23 december 2017
     </div>
     <div class="content">
         <div class="ui small relaxed list">
@@ -696,7 +692,7 @@
                     </div>
 
                     <div class="ui label">
-                        Starts at: 08:07:32
+                        Starts at: 16:26:54
                     </div>
 
                     <div class="ui label">
@@ -843,7 +839,7 @@
             Lesson 3: Black card
         </div>
         <div>
-            08:07:32
+            16:26:54
         </div>
         <p>
         
@@ -851,7 +847,7 @@
             Tournament: novice
         </div>
         <div>
-            12:07:32
+            20:26:54
         </div>
         <p>
         
@@ -874,7 +870,7 @@
 
 
 <div id="12_28_modal" class="ui tiny modal">
-    <div class="header">28 December 2017
+    <div class="header">28 december 2017
     </div>
     <div class="content">
         <div class="ui small relaxed list">
@@ -895,7 +891,7 @@
                     </div>
 
                     <div class="ui label">
-                        Starts at: 08:07:32
+                        Starts at: 16:26:54
                     </div>
 
                     <div class="ui label">
@@ -924,7 +920,7 @@
                     </div>
 
                     <div class="ui label">
-                        Starts at: 12:07:32
+                        Starts at: 20:26:54
                     </div>
 
                     <div class="ui label">
@@ -1034,7 +1030,7 @@
                 <tr>
                     
                     <td style="background-color: #ADD8E6; height:30px;">
-                        PassCard
+                        Calendar
                     </td>
                     
                     <td style="background-color: darkcyan; height:30px;">
@@ -1054,10 +1050,11 @@
 </table>
     </div>
 
-    
     <div class="ui  tab" data-tab="event_list">
         
         <div class="ui large relaxed list">
+
+    
 
     
     
@@ -1106,7 +1103,7 @@
         </div>
 
         <div class="ui label">
-            Starts at: 08:07:32
+            Starts at: 16:26:54
         </div>
 
         <div class="ui label">
@@ -1137,7 +1134,7 @@
         </div>
 
         <div class="ui label">
-            Starts at: 08:07:32
+            Starts at: 16:26:54
         </div>
 
         <div class="ui label">
@@ -1168,7 +1165,7 @@
         </div>
 
         <div class="ui label">
-            Starts at: 12:07:32
+            Starts at: 20:26:54
         </div>
 
         <div class="ui label">
@@ -1185,20 +1182,28 @@
     
     
 
+    
 </div>
         
     </div>
 
     
-    
-    <div class="ui  tab" data-tab="pass_card">
+
+    <div class="ui active tab" data-tab="pass_card">
         
-        <div>
-    Visited 1 / 8
+        
+
+<div class="ui center aligned basic segment">
+    <span style="font-size: 1.5rem;"> Events visited 1 of 8</span>
+
+    <p>expires at 2018-01-21</p>
+
 </div>
 
 
 <div class="ui large relaxed list">
+
+    
 
     
     
@@ -1233,13 +1238,22 @@
     
     
 
-</div>
-
-        
-    </div>
     
 </div>
 
+
+
+        
+    </div>
+
+    
+
+    <script>
+        $('#month_navigation_menu').hide();
+    </script>
+
+    
+</div>
 
 
 <script>
@@ -1259,7 +1273,6 @@
         });
     });
 </script>
-
 
 </body>
 

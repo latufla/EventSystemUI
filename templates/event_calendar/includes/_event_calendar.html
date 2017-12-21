@@ -47,7 +47,7 @@
                 <tr>
                     {% for lb in view.label_config %}
                     <td style="background-color: {{ lb.color }}; height:30px;">
-                        {{ lb.type_name }}
+                        {{ loc(lb.loc_key) }}
                     </td>
                     {% endfor %}
                 </tr>

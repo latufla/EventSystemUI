@@ -25,7 +25,7 @@
 
 {% set day_modal = day_id + "_modal" %}
 <div id="{{day_modal}}" class="ui tiny modal">
-    <div class="header">{{calendar_day.date.day|string + " " + view.month.name + " " +
+    <div class="header">{{calendar_day.date.day|string + " " + view.month.loc_key + " " +
         view.month.year|string}}
     </div>
     <div class="content">

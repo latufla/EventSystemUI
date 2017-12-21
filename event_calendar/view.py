@@ -8,8 +8,6 @@ class Tabs:
     EVENT_LIST = "event_list_tab"
     PASS_CARD = "pass_card_tab"
 
-    ALL = [CALENDAR, EVENT_LIST, PASS_CARD]
-
 
 class View:
     def __init__(self, month: Month, pass_card: PassCard, label_config: List[Label], prev_url: str, next_url: str):

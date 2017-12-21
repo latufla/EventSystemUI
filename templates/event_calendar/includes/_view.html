@@ -3,7 +3,7 @@
         <a class="icon item" href="{{view.prev_url}}">
             <i class="left chevron icon"></i>
         </a>
-        <div class="item">{{view.month.name}} {{view.month.year}}</div>
+        <div class="item">{{view.month.loc_key}} {{view.month.year}}</div>
         <a class="icon item" href="{{view.next_url}}">
             <i class="right chevron icon"></i>
         </a>
@@ -12,17 +12,17 @@
     <div id="content_menu" class="ui tabular menu">
         <div id="calendar_tab" class="{% if view.active_tab=='calendar_tab' %}active{% endif %} item"
              data-tab="calendar"
-             style="cursor: pointer;">Calendar
+             style="cursor: pointer;">{{loc(loc.CALENDAR_CONTENT_MENU_TAB)}}
         </div>
 
         <div id="event_list_tab" class="{% if view.active_tab=='event_list_tab' %}active{% endif %} item"
              data-tab="event_list"
-             style="cursor: pointer;">Events
+             style="cursor: pointer;">{{loc(loc.EVENT_LIST_CONTENT_MENU_TAB)}}
         </div>
 
         <div id="pass_card_tab" class="{% if view.active_tab=='pass_card_tab' %}active{% endif %} item"
              data-tab="pass_card"
-             style="cursor: pointer;">PassCard
+             style="cursor: pointer;">{{loc(loc.PASS_CARD_CONTENT_MENU_TAB)}}
         </div>
     </div>
 

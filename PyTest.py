@@ -1,5 +1,6 @@
 from datetime import datetime, timedelta
 
+from event_calendar.loc import Loc
 from event_calendar.view import View, Tabs
 from event_calendar.event_calendar import Labels, Month, Day, Event, PassCard, EventStates
 
@@ -41,7 +42,7 @@ env = Environment(
 )
 
 template = env.get_template('example.html')
-html = template.render(view=view)
+html = template.render(view=view, loc=Loc())
 
 with open("PyTest.html", "w") as file:
     file.write(html)
