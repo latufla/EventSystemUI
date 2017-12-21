@@ -1,10 +1,10 @@
 <div style="min-width:{{min_width}}px; max-width:{{max_width}}px;">
     <div class="ui right floated menu">
-        <a class="icon item" href="{{calendar_month.prev_url}}">
+        <a class="icon item" href="{{view.prev_url}}">
             <i class="left chevron icon"></i>
         </a>
-        <div class="item">{{calendar_month.month.name}} {{calendar_month.month.year}}</div>
-        <a class="icon item" href="{{calendar_month.next_url}}">
+        <div class="item">{{view.month.name}} {{view.month.year}}</div>
+        <a class="icon item" href="{{view.next_url}}">
             <i class="right chevron icon"></i>
         </a>
     </div>
@@ -13,7 +13,7 @@
         <a class="active item" data-tab="calendar">Calendar</a>
         <a class="item" data-tab="event_list">Events</a>
 
-        {% if calendar_month.pass_card %}
+        {% if view.pass_card %}
         <a class="item" data-tab="pass_card">PassCard</a>
         {% endif %}
     </div>
@@ -22,14 +22,14 @@
         {% include 'event_calendar/includes/_event_calendar.html' %}
     </div>
     <div class="ui tab" data-tab="event_list">
-        {% with events=calendar_month.month.events%}
+        {% with events=view.month.events%}
         {% include 'event_calendar/includes/_event_list.html' %}
         {% endwith %}
     </div>
 
-    {% if calendar_month.pass_card %}
+    {% if view.pass_card %}
     <div class="ui tab" data-tab="pass_card">
-        {% with pass_card=calendar_month.pass_card %}
+        {% with pass_card=view.pass_card %}
         {% include 'event_calendar/includes/_pass_card.html' %}
         {% endwith %}
     </div>

@@ -1,6 +1,6 @@
 from datetime import datetime, timedelta
 
-from event_calendar.calendar_month import CalendarMonth
+from event_calendar.view import View
 from event_calendar.event_calendar import Labels, Month, Day, Event, PassCard, EventStates
 
 now = datetime.utcnow()
@@ -30,7 +30,7 @@ event2.priority = 1
 event2.description_short = "First year novices are welcome"
 month.add_event(event2)
 
-calendar_month = CalendarMonth(month, pass_card, Labels.ALL, "http://google.com", "http://ya.com")
+view = View(month, pass_card, Labels.ALL, "http://google.com", "http://ya.com")
 
 from jinja2 import Environment, PackageLoader, select_autoescape
 
@@ -40,7 +40,7 @@ env = Environment(
 )
 
 template = env.get_template('example.html')
-html = template.render(calendar_month=calendar_month)
+html = template.render(view=view)
 
 with open("PyTest.html", "w") as file:
     file.write(html)
