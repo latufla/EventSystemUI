@@ -1,6 +1,3 @@
-from enum import Enum
-
-
 class Loc:
     def __call__(self, loc_key: str):
         return self.all[loc_key]["en"]
@@ -26,6 +23,11 @@ class Loc:
     CALENDAR_CONTENT_MENU_TAB = "calendar_content_menu_tab"
     EVENT_LIST_CONTENT_MENU_TAB = "event_list_content_menu_tab"
     PASS_CARD_CONTENT_MENU_TAB = "pass_card_content_menu_tab"
+
+    NOT_READY_EVENT_STATE = "not_ready_event_state"
+    STARTED_EVENT_STATE = "started_event_state"
+    FINISHED_EVENT_STATE = "finished_event_state"
+    REWARDED_EVENT_STATE = "rewarded_event_state"
 
     def __init__(self):
         self.all = {
@@ -84,5 +86,18 @@ class Loc:
             },
             self.TOURNAMENT_LABEL: {
                 "en": "Tournament",
+            },
+
+            self.NOT_READY_EVENT_STATE: {
+                "en": "Not ready",
+            },
+            self.STARTED_EVENT_STATE: {
+                "en": "Started",
+            },
+            self.FINISHED_EVENT_STATE: {
+                "en": "Finished",
+            },
+            self.REWARDED_EVENT_STATE: {
+                "en": "Rewarded",
             }
         }
