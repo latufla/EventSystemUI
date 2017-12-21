@@ -1,6 +1,6 @@
 from datetime import datetime, timedelta
 
-from event_calendar.view import View
+from event_calendar.view import View, Tabs
 from event_calendar.event_calendar import Labels, Month, Day, Event, PassCard, EventStates
 
 now = datetime.utcnow()
@@ -31,6 +31,7 @@ event2.description_short = "First year novices are welcome"
 month.add_event(event2)
 
 view = View(month, pass_card, Labels.ALL, "http://google.com", "http://ya.com")
+view.active_tab = Tabs.PASS_CARD
 
 from jinja2 import Environment, PackageLoader, select_autoescape
 
