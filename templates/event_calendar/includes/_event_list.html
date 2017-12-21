@@ -1,9 +1,19 @@
 <div class="ui large relaxed list">
 
+    {% if events|length != 0 %}
+
     {% for event in events%}
     {% with event=event %}
     {% include 'event_calendar/includes/_event_list_item.html' %}
     {% endwith %}
     {% endfor %}
 
+    {% else %}
+
+    <div class="ui center aligned basic segment">
+        <div class="ui hidden divider"></div>
+        <span style="font-size: 1.5rem; "> Sorry, no events this month :( </span>
+        <div class="ui hidden divider"></div>
+    </div>
+    {% endif %}
 </div>

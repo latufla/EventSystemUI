@@ -20,12 +20,10 @@
              style="cursor: pointer;">Events
         </div>
 
-        {% if view.pass_card %}
         <div id="pass_card_tab" class="{% if view.active_tab=='pass_card_tab' %}active{% endif %} item"
              data-tab="pass_card"
              style="cursor: pointer;">PassCard
         </div>
-        {% endif %}
     </div>
 
     <div class="ui {% if view.active_tab=='calendar_tab' %}active{% endif %} tab" data-tab="calendar">
@@ -38,7 +36,6 @@
         {% endwith %}
     </div>
 
-    {% if view.pass_card %}
     {% set is_active = view.active_tab == "pass_card_tab" %}
 
     <div class="ui {% if is_active %}active{% endif %} tab" data-tab="pass_card">
@@ -52,8 +49,6 @@
     <script>
         $('#month_navigation_menu').hide();
     </script>
-
-    {% endif %}
 
     {% endif %}
 </div>
