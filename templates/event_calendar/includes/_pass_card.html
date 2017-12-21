@@ -1,0 +1,7 @@
+<div>
+    Visited {{pass_card.events_visited|length}} / {{pass_card.max_events_visited}}
+</div>
+
+{% with events=pass_card.events_visited%}
+{% include 'event_calendar/includes/_event_list.html' %}
+{% endwith %}

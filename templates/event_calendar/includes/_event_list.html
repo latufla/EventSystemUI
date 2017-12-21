@@ -1,6 +1,6 @@
 <div class="ui large relaxed list">
 
-    {% for event in calendar_month.month.events%}
+    {% for event in events%}
     {% with event=event %}
     {% include 'event_calendar/includes/_event_list_item.html' %}
     {% endwith %}

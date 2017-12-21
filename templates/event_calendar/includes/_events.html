@@ -12,14 +12,28 @@
     <div class="ui tabular menu">
         <a class="active item" data-tab="calendar">Calendar</a>
         <a class="item" data-tab="event_list">Events</a>
+
+        {% if calendar_month.pass_card %}
+        <a class="item" data-tab="pass_card">PassCard</a>
+        {% endif %}
     </div>
 
     <div class="ui active tab" data-tab="calendar">
         {% include 'event_calendar/includes/_event_calendar.html' %}
     </div>
     <div class="ui tab" data-tab="event_list">
+        {% with events=calendar_month.month.events%}
         {% include 'event_calendar/includes/_event_list.html' %}
+        {% endwith %}
     </div>
+
+    {% if calendar_month.pass_card %}
+    <div class="ui tab" data-tab="pass_card">
+        {% with pass_card=calendar_month.pass_card %}
+        {% include 'event_calendar/includes/_pass_card.html' %}
+        {% endwith %}
+    </div>
+    {% endif %}
 </div>
 
 <script>
