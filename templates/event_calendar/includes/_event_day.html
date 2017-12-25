@@ -42,12 +42,13 @@
                     <div class="description">{{event.description_short}}</div>
 
                     <p></p>
-                    <div class="ui {{event.state.color }} label">
-                        {{loc(event.state.loc_key)}}
-                    </div>
 
                     <div class="ui label">
                         Starts at: {{event.start_time}}
+                    </div>
+
+                    <div class="ui {{event.state.color }} label">
+                        {{loc(event.state.loc_key)}}
                     </div>
 
                     <div class="ui label">

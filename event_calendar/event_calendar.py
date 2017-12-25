@@ -93,6 +93,7 @@ class Event:
         self.label = label
         self.url = url
 
+        self.description = ""
         self.description_short = ""
 
         self.participant_list = []
@@ -179,3 +180,9 @@ class Day:
 
     def get_event_icons(self):
         return list(map(lambda e: e.label.icon, self.events))
+
+
+class Player():
+    def __init__(self, name: str, url: str):
+        self.name = name
+        self.url = url
