@@ -7,13 +7,36 @@ from event_calendar.event_calendar import Labels, Month, Day, Event, PassCard, E
 import event.event
 import event.view
 
+import event_edit.view
+
+from jinja2 import Environment, PackageLoader, select_autoescape
+
+
+def try_event_edit(now):
+    e = Event("Lesson 2: Red card", now + timedelta(days=2), Labels.LESSON, "http://ya.com")
+    e.description_short = "Being a good red citizen"
+
+    view = event_edit.view.View(e, "")
+
+    env = Environment(
+        loader=PackageLoader('PyTest', 'templates'),
+        autoescape=select_autoescape(['html', 'xml'])
+    )
+
+    template = env.get_template('example.html')
+    html = template.render(view=view, loc=Loc())
+
+    with open("PyTest.html", "w") as file:
+        file.write(html)
+
+
 def try_event(now):
     e = event.event.Event(1, "Lesson 1: Greeting", datetime(2017, 12, 6), Labels.LESSON, "http://google.com")
     e.description = "<p>Jack Dempsey duckbilled barracudina Razorback sucker longfin escolar; mahseer midshipman warbonnet bramble shark. Blackchin bigeye squaretail eeltail catfish rough scad! Stonecat Cornish Spaktailed Bream hillstream loach longnose lancetfish eel lyretail eel saury: salmon shark Hammerjaw loach minnow, walking catfish.</p>" \
-                        "<p>Jack yellowfin cutthroat trout clingfish arrowtooth eel yellowtail horse mackerel redmouth whalefish tubeblenny herring tripletail, Owens pupfish summer flounder. Horsefish beachsalmon smalltooth sawfish mud cat catfish tadpole fish.</p>" \
-                        "<p>Slickhead stoneroller minnow sailfish yellowtail horse mackerel Long-finned sand diver cod, dojo loach sand knifefish lamprey yellowfin croaker labyrinth fish spiny dogfish kappy ground shark. Delta smelt ide noodlefish eel hammerhead shark cookie-cutter shark clown loach sixgill shark bluefish sea chub powen Modoc sucker.</p>" \
-                        "<p>Southern flounder kelp perch armored searobin yellow-and-black triplefin fangtooth South American Lungfish. Southern Dolly Varden zebra shark smelt-whiting bamboo shark clownfish atka mackerel, shrimpfish. Platy airbreathing catfish Cornish Spaktailed Bream lampfish lagena. Orangespine unicorn fish ribbon sawtail fish, squeaker Blind shark upside-down catfish darter flagfin, blue catfish. Zebra tilapia ilisha stonefish popeye catafula treefish Redhorse sucker. Alooh vendace pomfret ghoul scup kuhli loach ghost carp muskellunge luderick Mexican golden trout orangespine unicorn fish dory, bluntnose minnow orbicular velvetfish, leaffish.</p>" \
-                        "<p>Nurseryfish zebra trout Alaska blackfish dace squaretail blue eye. Butterflyfish barb; icefish, dorado bandfish snubnose parasitic eel Black mackerel river loach.</p>"
+                    "<p>Jack yellowfin cutthroat trout clingfish arrowtooth eel yellowtail horse mackerel redmouth whalefish tubeblenny herring tripletail, Owens pupfish summer flounder. Horsefish beachsalmon smalltooth sawfish mud cat catfish tadpole fish.</p>" \
+                    "<p>Slickhead stoneroller minnow sailfish yellowtail horse mackerel Long-finned sand diver cod, dojo loach sand knifefish lamprey yellowfin croaker labyrinth fish spiny dogfish kappy ground shark. Delta smelt ide noodlefish eel hammerhead shark cookie-cutter shark clown loach sixgill shark bluefish sea chub powen Modoc sucker.</p>" \
+                    "<p>Southern flounder kelp perch armored searobin yellow-and-black triplefin fangtooth South American Lungfish. Southern Dolly Varden zebra shark smelt-whiting bamboo shark clownfish atka mackerel, shrimpfish. Platy airbreathing catfish Cornish Spaktailed Bream lampfish lagena. Orangespine unicorn fish ribbon sawtail fish, squeaker Blind shark upside-down catfish darter flagfin, blue catfish. Zebra tilapia ilisha stonefish popeye catafula treefish Redhorse sucker. Alooh vendace pomfret ghoul scup kuhli loach ghost carp muskellunge luderick Mexican golden trout orangespine unicorn fish dory, bluntnose minnow orbicular velvetfish, leaffish.</p>" \
+                    "<p>Nurseryfish zebra trout Alaska blackfish dace squaretail blue eye. Butterflyfish barb; icefish, dorado bandfish snubnose parasitic eel Black mackerel river loach.</p>"
     e.state = EventStates.STARTED
     e.participant_list.append(event.event.Player(1, "Alex", ""))
     e.participant_list.append(event.event.Player(2, "La", ""))
@@ -25,7 +48,6 @@ def try_event(now):
     e.wait_list.append(event.event.Player(7, "Jimmy", ""))
 
     view = event.view.View(e, True, "", "")
-    from jinja2 import Environment, PackageLoader, select_autoescape
 
     env = Environment(
         loader=PackageLoader('PyTest', 'templates'),
@@ -68,8 +90,6 @@ def try_event_calendar(now):
     view = View(month, pass_card, Labels.ALL, "http://google.com", "http://ya.com")
     view.active_tab = Tabs.PASS_CARD
 
-    from jinja2 import Environment, PackageLoader, select_autoescape
-
     env = Environment(
         loader=PackageLoader('PyTest', 'templates'),
         autoescape=select_autoescape(['html', 'xml'])
@@ -83,5 +103,6 @@ def try_event_calendar(now):
 
 
 now = datetime.utcnow()
-try_event(now)
+# try_event(now)
 # try_event_calendar(now)
+try_event_edit(now)
