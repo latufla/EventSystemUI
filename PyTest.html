@@ -12,12 +12,73 @@
 
 <body>
 
-<div class="ui grid">
-    <div class="three wide column"></div>
-    <div class="ten wide column">
-        <div class="ui hidden divider"></div>
-        <div style="min-width:px; max-width:px;">
-    <div class="ui items">
+<div id="admin_menu" class="ui sidebar inverted vertical menu left">
+
+    <div class="ui hidden divider"></div>
+
+    <h4 class="ui horizontal divider white header">
+        <span style="color:white;">States</span>
+    </h4>
+
+    <a class="item">
+        Not ready
+
+        <div class="ui label">&nbsp;&nbsp;</div>
+    </a>
+    <a class="active item">
+        Started
+
+        <div class="ui green label">&nbsp;&nbsp;</div>
+    </a>
+    <a class="item">
+        Finished
+
+        <div class="ui orange label">&nbsp;&nbsp;</div>
+    </a>
+    <a class="item">
+        Rewarded
+
+        <div class="ui red label">&nbsp;&nbsp;</div>
+    </a>
+
+    <div class="ui hidden divider"></div>
+
+    <h4 class="ui horizontal divider white header">
+        <span style="color:white;">Commands</span>
+    </h4>
+
+    <a class="item">
+        <i class="toggle on icon"></i>Publish
+    </a>
+
+    <a class="item">
+        <i class="edit icon"></i>Edit
+    </a>
+    <a class="item">
+        <i class="trash icon"></i>Delete
+    </a>
+
+</div>
+
+<div id="admin_menu_pusher" class="pusher">
+
+    <div class="ui grid">
+        <div class="two wide column">
+
+            <div id="admin_menu_button" class="ui black big launch right attached fixed button"
+                 style="position:fixed; top:20px;">
+                <div class="ui container center aligned">
+ <i class="content icon"></i>
+                </div>
+
+            </div>
+
+        </div>
+        <div class="twelve wide column">
+            <div class="ui hidden divider"></div>
+
+            <div style="min-width:700px; max-width:1200px;">
+    <div class="ui unstackable items">
         <div class="item">
             <p></p>
             <i class="big book icon"></i>
@@ -42,8 +103,8 @@
                         Waiting: 3
                     </div>
 
-                    <!--<div class="ui hidden divider"></div>-->
- <p>&nbsp;</p>
+                    <p>&nbsp;</p>
+
                     <div>
                         <p>Jack Dempsey duckbilled barracudina Razorback sucker longfin escolar; mahseer midshipman warbonnet bramble shark. Blackchin bigeye squaretail eeltail catfish rough scad! Stonecat Cornish Spaktailed Bream hillstream loach longnose lancetfish eel lyretail eel saury: salmon shark Hammerjaw loach minnow, walking catfish.</p><p>Jack yellowfin cutthroat trout clingfish arrowtooth eel yellowtail horse mackerel redmouth whalefish tubeblenny herring tripletail, Owens pupfish summer flounder. Horsefish beachsalmon smalltooth sawfish mud cat catfish tadpole fish.</p><p>Slickhead stoneroller minnow sailfish yellowtail horse mackerel Long-finned sand diver cod, dojo loach sand knifefish lamprey yellowfin croaker labyrinth fish spiny dogfish kappy ground shark. Delta smelt ide noodlefish eel hammerhead shark cookie-cutter shark clown loach sixgill shark bluefish sea chub powen Modoc sucker.</p><p>Southern flounder kelp perch armored searobin yellow-and-black triplefin fangtooth South American Lungfish. Southern Dolly Varden zebra shark smelt-whiting bamboo shark clownfish atka mackerel, shrimpfish. Platy airbreathing catfish Cornish Spaktailed Bream lampfish lagena. Orangespine unicorn fish ribbon sawtail fish, squeaker Blind shark upside-down catfish darter flagfin, blue catfish. Zebra tilapia ilisha stonefish popeye catafula treefish Redhorse sucker. Alooh vendace pomfret ghoul scup kuhli loach ghost carp muskellunge luderick Mexican golden trout orangespine unicorn fish dory, bluntnose minnow orbicular velvetfish, leaffish.</p><p>Nurseryfish zebra trout Alaska blackfish dace squaretail blue eye. Butterflyfish barb; icefish, dorado bandfish snubnose parasitic eel Black mackerel river loach.</p>
                     </div>
@@ -189,14 +250,37 @@
     </div>
 </div>
 
+
 <script type="text/javascript">
     $('#participants_accordion').accordion();
     $('#wait_list_accordion').accordion();
 </script>
 
+
+        </div>
+        <div class="two wide column"></div>
     </div>
-    <div class="three wide column"></div>
+
 </div>
+
+<script>
+
+    $('#admin_menu').sidebar(
+        {
+            onVisible: function () {
+                $('#admin_menu_button').hide();
+            },
+
+            onHidden: function () {
+                $('#admin_menu_button').show();
+            }
+        });
+
+    $('#admin_menu_button').click(function () {
+        $('#admin_menu').sidebar('toggle');
+    });
+
+</script>
 
 </body>
 

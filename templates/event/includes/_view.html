@@ -1,103 +1,88 @@
-<div style="min-width:{{view.min_width}}px; max-width:{{view.max_width}}px;">
-    <div class="ui unstackable items">
-        <div class="item">
-            <p></p>
-            <i class="{{view.event.label.icon.name}}"></i>
+<div id="admin_menu" class="ui sidebar inverted vertical menu left">
 
-            <div class="content">
-                <div class="header">{{ view.event.title }}</div>
+    <div class="ui hidden divider"></div>
 
-                <div class="description">
-                    <div class="ui label">
-                        Starts at: {{view.event.start_time}}
-                    </div>
+    <h4 class="ui horizontal divider white header">
+        <span style="color:white;">States</span>
+    </h4>
 
-                    <div class="ui {{view.event.state.color }} label">
-                        {{loc(view.event.state.loc_key)}}
-                    </div>
+    <a class="item">
+        Not ready
 
-                    <div class="ui label">
-                        Participate: {{view.event.participant_list|length}} / {{view.event.max_participants}}
-                    </div>
+        <div class="ui label">&nbsp;&nbsp;</div>
+    </a>
+    <a class="active item">
+        Started
 
-                    <div class="ui label">
-                        Waiting: {{view.event.wait_list|length}}
-                    </div>
+        <div class="ui green label">&nbsp;&nbsp;</div>
+    </a>
+    <a class="item">
+        Finished
 
-                    <p>&nbsp;</p>
+        <div class="ui orange label">&nbsp;&nbsp;</div>
+    </a>
+    <a class="item">
+        Rewarded
 
-                    <div>
-                        {{view.event.description|safe}}
-                    </div>
-                </div>
+        <div class="ui red label">&nbsp;&nbsp;</div>
+    </a>
 
-                <p>&nbsp;</p>
+    <div class="ui hidden divider"></div>
 
-                <div id="participants_accordion" class="ui accordion">
-                    <div class="title active">
-                        <i class="dropdown icon"></i>
-                        Participants
-                    </div>
-                    <div class="content active">
-                        {% for p in view.event.participant_list %}
-                        <div>
-                            {% if view.creator %}
-                            <form action="{{ view.remove_event_participant }}" method="post">
-                                <input name="event_id" type="hidden" value="{{ view.event.id }}">
-                                <input name="user_id" type="hidden" value="{{ p['id'] }}" style="display: none">
+    <h4 class="ui horizontal divider white header">
+        <span style="color:white;">Commands</span>
+    </h4>
 
-                                <button class="ui basic negative tiny icon button" type="submit">
-                                    <i class="minus icon"></i>
-                                </button>
-                                <a href="{{ p.url }}">{{ p.name }}</a>
-                            </form>
-                            {% else %}
-                            <a href="{{ p.url}}">{{ p.name }}</a>
-                            {% endif %}
-                        </div>
-                        <p>
-                            {% endfor %}
-                    </div>
-                </div>
+    <a class="item">
+        <i class="toggle on icon"></i>Publish
+    </a>
 
-                <div class="ui hidden divider"></div>
+    <a class="item">
+        <i class="edit icon"></i>Edit
+    </a>
+    <a class="item">
+        <i class="trash icon"></i>Delete
+    </a>
 
-                <div id="wait_list_accordion" class="ui accordion">
-                    <div class="title active">
-                        <i class="dropdown icon"></i>
-                        Wait list
-                    </div>
-                    <div class="content active">
-                        {% for p in view.event.wait_list %}
-                        <div>
-                            {% if view.creator %}
-                            <form action="{{ view.add_event_participant }}" method="post">
-                                <input name="event_id" type="hidden" value="{{ view.event.id }}">
-                                <input name="user_id" type="hidden" value="{{ p['id'] }}" style="display: none">
-
-                                <button class="ui basic positive tiny icon button" type="submit">
-                                    <i class="plus icon"></i>
-                                </button>
-                                <a href="{{ p.url }}">{{ p.name }}</a>
-                            </form>
-                            {% else: %}
-                            <a href="{{ p.url }}">{{ p.name }}</a>
-                            {% endif %}
-
-                        </div>
-
-                        <p>
-                            {% endfor %}
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </div>
 </div>
 
-<script type="text/javascript">
-    $('#participants_accordion').accordion();
-    $('#wait_list_accordion').accordion();
-</script>
+<div id="admin_menu_pusher" class="pusher">
 
+    <div class="ui grid">
+        <div class="two wide column">
+
+            <div id="admin_menu_button" class="ui black big launch right attached fixed button"
+                 style="position:fixed; top:20px;">
+                <i class="content icon"></i>
+            </div>
+
+        </div>
+        <div class="twelve wide column">
+            <div class="ui hidden divider"></div>
+
+            {% include 'event/includes/_event.html' %}
+
+        </div>
+        <div class="two wide column"></div>
+    </div>
+
+</div>
+
+<script>
+
+    $('#admin_menu').sidebar(
+        {
+            onVisible: function () {
+                $('#admin_menu_button').hide();
+            },
+
+            onHidden: function () {
+                $('#admin_menu_button').show();
+            }
+        });
+
+    $('#admin_menu_button').click(function () {
+        $('#admin_menu').sidebar('toggle');
+    });
+
+</script>
