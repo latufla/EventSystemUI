@@ -1,4 +1,25 @@
-<script type="text/javascript"
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Event</title>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.2.13/dist/semantic.min.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.2.13/dist/semantic.min.js"></script>
+</head>
+
+<body>
+
+<div class="ui grid">
+    <div class="two wide column">
+
+    </div>
+    <div class="twelve wide column">
+        <div class="ui hidden divider"></div>
+
+        <script type="text/javascript"
         src="../../static/node_modules/semantic-ui-calendar/dist/calendar.min.js"></script>
 <link rel="stylesheet"
       href="../../static/node_modules/semantic-ui-calendar/dist/calendar.min.css"/>
@@ -7,9 +28,9 @@
         src="../../static/node_modules/ckeditor/ckeditor.js"></script>
 
 
-<div style="min-width:{{view.min_width}}px; max-width:{{view.max_width}}px;">
+<div style="min-width:400px; max-width:1200px;">
 
-    <form id="main_form" class="ui form error" action="{{view.action_url}}" method="post">
+    <form id="main_form" class="ui form error" action="" method="post">
 
         <div class="inline field">
             <label>Type</label>
@@ -30,18 +51,18 @@
 
         <div class="field">
             <label>Title</label>
-            <input name="title" placeholder="" value="{{ view.event.title }}" type="text">
+            <input name="title" placeholder="" value="Lesson 2: Red card" type="text">
         </div>
 
         <div class="field">
             <label>Short description</label>
             <textarea id="description_short" name="description_short"
-                      placeholder="">{{ view.event.description_short }}</textarea>
+                      placeholder="">Being a good red citizen</textarea>
         </div>
 
         <div class="field">
             <label>Description</label>
-            <textarea id="description" name="description" placeholder="">{{ view.event.description }}</textarea>
+            <textarea id="description" name="description" placeholder=""></textarea>
         </div>
 
         <div class="field">
@@ -50,7 +71,7 @@
                 <div class="ui calendar" id="date_start">
                     <div class="ui input right icon">
                         <i class="calendar icon"></i>
-                        <input name="date_start" type="text" placeholder="Date" value="{{ view.event.date_start }}">
+                        <input name="date_start" type="text" placeholder="Date" value="">
                     </div>
                 </div>
             </div>
@@ -59,13 +80,13 @@
         <div class="inline field">
             <label>Max Participants</label>
             <div class="inline field">
-                <input name="max_participants" type="text" value="{{ view.event.max_participants }}">
+                <input name="max_participants" type="text" value="10">
             </div>
         </div>
 
         <div class="ui error message"></div>
 
-        <input type="text" name="event_id" value="{{ view.event.id }}" style="display: none">
+        <input type="text" name="event_id" value="2" style="display: none">
         <button class="ui primary right floated button" type="submit" style="min-width: 150px;">Save</button>
 
     </form>
@@ -122,3 +143,11 @@
     CKEDITOR.replace('description_short');
     CKEDITOR.replace('description');
 </script>
+
+    </div>
+    <div class="two wide column"></div>
+</div>
+
+</body>
+
+</html>
