@@ -4,3 +4,5 @@ class Player:
         self.name = name
         self.url = url
         self.image = image
+
+        self.points = 0

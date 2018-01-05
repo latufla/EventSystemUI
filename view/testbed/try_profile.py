@@ -2,11 +2,13 @@ from datetime import datetime, timedelta
 
 from jinja2 import Environment, PackageLoader, select_autoescape
 
+from view.data.player import Player
+from view.loc import Loc
+from view.view.profile import View
+
 from view.data.event import Event as EventData
 from view.data.event_result import EventResult
 from view.enum.event_label import EventLabels
-from view.loc import Loc
-from view.view.events_history import View
 
 now = datetime.utcnow()
 
@@ -20,14 +22,16 @@ events_history = list(
     map(lambda e: EventResult(e, 1, 1000, True), events)
 )
 
-view = View(events_history)
+player = Player(1, "Red Fox", "", "https://pbs.twimg.com/profile_images/606791373593837568/eL5DHK0L.png")
+player.points = 1000
+view = View(player, events_history)
 
 env = Environment(
     loader=PackageLoader('PyTest', 'templates'),
     autoescape=select_autoescape(['html', 'xml'])
 )
 
-template = env.get_template('testbed/try_events_history.html')
+template = env.get_template('testbed/try_profile.html')
 html = template.render(view=view, loc=Loc())
 
 with open("test_bed.html", "w") as file:

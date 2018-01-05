@@ -37,6 +37,9 @@ class Loc:
     EVENTS_HISTORY_TOOK_PLACE = "events_history_took_place"
     EVENTS_HISTORY_AND_REWARD = "events_history_and_reward"
 
+    PROFILE_EVENTS_HISTORY = "profile_events_history"
+    PROFILE_POINTS = "profile_points"
+
     def __init__(self):
         self.all = {
             self.JANUARY: {
@@ -120,5 +123,12 @@ class Loc:
             },
             self.EVENTS_HISTORY_AND_REWARD: {
                 "en": "and get <strong>{0}</strong> points",
+            },
+
+            self.PROFILE_EVENTS_HISTORY: {
+                "en": "Events history",
+            },
+            self.PROFILE_POINTS: {
+                "en": "{0} points",
             }
         }
