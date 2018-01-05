@@ -37,7 +37,7 @@ event2.description_short = "First year novices are welcome"
 month.add_event(event2)
 
 view = View(month, pass_card, EventLabels.ALL, "http://google.com", "http://ya.com")
-view.active_tab = Tabs.PASS_CARD
+view.active_tab = Tabs.CALENDAR
 
 env = Environment(
     loader=PackageLoader('PyTest', 'templates'),

@@ -24,7 +24,7 @@ events_history = list(
 
 player = Player(1, "Red Fox", "", "https://pbs.twimg.com/profile_images/606791373593837568/eL5DHK0L.png")
 player.points = 1000
-view = View(player, events_history)
+view = View(player, [])
 
 env = Environment(
     loader=PackageLoader('PyTest', 'templates'),

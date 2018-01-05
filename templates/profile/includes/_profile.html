@@ -18,6 +18,6 @@
 {% include 'events_history/includes/_events_history.html' %}
 {% else %}
 <div class="ui center aligned basic segment">
-    <span style="color: grey;"> You`ve never participated in any events </span>
+    <span style="font-size: 1.1rem; color: grey;"> {{loc(loc.PROFILE_NO_EVENTS_PARTICIPATED)}} </span>
 </div>
 {% endif %}
