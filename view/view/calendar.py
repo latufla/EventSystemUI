@@ -2,7 +2,7 @@ from typing import List
 
 from view.data.month import Month
 from view.data.pass_card import PassCard
-from view.enum.event_label import EventLabel
+from view.enum.event_label import Label
 
 
 class Tabs:
@@ -12,7 +12,7 @@ class Tabs:
 
 
 class View:
-    def __init__(self, month: Month, pass_card: PassCard, label_config: List[EventLabel], prev_url: str, next_url: str):
+    def __init__(self, month: Month, pass_card: PassCard, label_config: List[Label], prev_url: str, next_url: str):
         self.month = month
         self.pass_card = pass_card
 
@@ -22,5 +22,5 @@ class View:
         self.next_url = next_url
 
         self.active_tab = Tabs.CALENDAR
-        self.min_width = 700
-        self.max_width = 1000
+        self.min_width = 800
+        self.max_width = 1100

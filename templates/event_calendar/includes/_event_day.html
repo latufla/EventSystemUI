@@ -13,13 +13,18 @@
 " , style="cursor: pointer;">
     <p>{{calendar_day.date.day}}&nbsp;</p>
 
-    <div class="ui grid">
-        {% for e in calendar_day.events%}
-        <div class="three wide column">
-            <i class="{{e.label.icon.name}}" style="color:{{e.label.icon.color}};"> </i>
-        </div>
-        {% endfor %}
-    </div>
+    <table class="ui collapsing unstackable table" style="background-color: transparent; border-color:transparent;">
+        <tbody>
+        <tr>
+            {% for e in calendar_day.events %}
+            <td style="border-color:transparent;">
+                <i class="big {{e.label.icon.name}}" style="color:{{e.label.icon.color}};"> </i>
+            </td>
+            {% endfor %}
+        </tr>
+        </tbody>
+    </table>
+
 </div>
 
 
@@ -34,7 +39,7 @@
             {% for event in calendar_day.events %}
             <div class="item">
 
-                <i class="{{event.label.icon.name}}"></i>
+                <i class="big {{event.label.icon.name}}"></i>
 
                 <div class="content">
 

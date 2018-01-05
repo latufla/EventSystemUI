@@ -1,6 +1,6 @@
 from datetime import datetime
 
-from view.enum.event_label import EventLabel, EventLabels
+from view.enum.event_label import Label, EventLabels
 from view.enum.event_state import EventStates
 
 from view.util import trim_microseconds
@@ -11,7 +11,7 @@ class Event:
     Special event, displaying on calendar
     """
 
-    def __init__(self, id: int, title: str, start_datetime: datetime, label: EventLabel = EventLabels.LESSON, url=""):
+    def __init__(self, id: int, title: str, start_datetime: datetime, label: Label = EventLabels.LESSON, url=""):
         self.id = id
         self.title = title
         self.start_datetime = start_datetime
