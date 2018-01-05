@@ -1,0 +1,19 @@
+<div class="ui feed">
+    {% for r in view.events_history %}
+    <div class="ui hidden divider"></div>
+    <div class="event">
+        <div class="content">
+            <div class="summary">
+                Participated at <a href="{{r.event.url}}">{{r.event.title}}</a>
+                <div class="date">{{r.event.start_date}}</div>
+            </div>
+            <div class="extra text">
+                You took a <strong>{{r.place}}</strong> place
+                {% if r.rewarded %}
+                and get <strong>{{r.reward}}</strong> reward
+                {% endif %}
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
