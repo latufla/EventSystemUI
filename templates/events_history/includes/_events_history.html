@@ -4,13 +4,13 @@
     <div class="event">
         <div class="content">
             <div class="summary">
-                Participated at <a href="{{r.event.url}}">{{r.event.title}}</a>
+                {{loc(loc.EVENTS_HISTORY_PARTICIPATED_AT, r.event.url, r.event.title)|safe}}
                 <div class="date">{{r.event.start_date}}</div>
             </div>
             <div class="extra text">
-                You took a <strong>{{r.place}}</strong> place
+                {{loc(loc.EVENTS_HISTORY_TOOK_PLACE, r.place)|safe}}
                 {% if r.rewarded %}
-                and get <strong>{{r.reward}}</strong> reward
+                {{loc(loc.EVENTS_HISTORY_AND_REWARD, r.reward)|safe}}
                 {% endif %}
             </div>
         </div>

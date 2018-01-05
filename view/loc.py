@@ -1,6 +1,9 @@
+from typing import List
+
+
 class Loc:
-    def __call__(self, loc_key: str):
-        return self.all[loc_key]["en"]
+    def __call__(self, loc_key: str, *args):
+        return self.all[loc_key]["en"].format(*args)
 
     JANUARY = "january"
     FEBRUARY = "february"
@@ -29,6 +32,10 @@ class Loc:
     STARTED_EVENT_STATE = "started_event_state"
     FINISHED_EVENT_STATE = "finished_event_state"
     REWARDED_EVENT_STATE = "rewarded_event_state"
+
+    EVENTS_HISTORY_PARTICIPATED_AT = "events_history_participated_at"
+    EVENTS_HISTORY_TOOK_PLACE = "events_history_took_place"
+    EVENTS_HISTORY_AND_REWARD = "events_history_and_reward"
 
     def __init__(self):
         self.all = {
@@ -103,5 +110,15 @@ class Loc:
             },
             self.REWARDED_EVENT_STATE: {
                 "en": "Rewarded",
+            },
+
+            self.EVENTS_HISTORY_PARTICIPATED_AT: {
+                "en": "Participated at <a href='{0}'>{1}</a>",
+            },
+            self.EVENTS_HISTORY_TOOK_PLACE: {
+                "en": "You took <strong>{0}</strong> place",
+            },
+            self.EVENTS_HISTORY_AND_REWARD: {
+                "en": "and get <strong>{0}</strong> points",
             }
         }
