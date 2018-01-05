@@ -9,10 +9,10 @@ from view.view.event_edit import View
 
 now = datetime.utcnow()
 
-e = EventData(2, "Lesson 2: Red card", now + timedelta(days=2), EventLabels.LESSON, "http://ya.com")
+e = EventData(2, "Lesson 2: Red card", now + timedelta(days=2), EventLabels.TOURNAMENT, "http://ya.com")
 e.description_short = "Being a good red citizen"
 
-view = View(e, "")
+view = View(e, "", EventLabels.EVENT_TYPES)
 
 env = Environment(
     loader=PackageLoader('PyTest', 'templates'),

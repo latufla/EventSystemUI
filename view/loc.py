@@ -19,6 +19,7 @@ class Loc:
     PASS_CARD_CALENDAR_LABEL = "pass_card_calendar_label"
     LESSON_CALENDAR_LABEL = "lesson_calendar_label"
     TOURNAMENT_LABEL = "tournament_calendar_label"
+    GAME_LABEL = "game_calendar_label"
 
     CALENDAR_CONTENT_MENU_TAB = "calendar_content_menu_tab"
     EVENT_LIST_CONTENT_MENU_TAB = "event_list_content_menu_tab"
@@ -86,6 +87,9 @@ class Loc:
             },
             self.TOURNAMENT_LABEL: {
                 "en": "Tournament",
+            },
+            self.GAME_LABEL: {
+                "en": "Game",
             },
 
             self.NOT_READY_EVENT_STATE: {
