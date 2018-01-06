@@ -2,6 +2,7 @@ from datetime import datetime
 
 from jinja2 import Environment, PackageLoader, select_autoescape
 
+from view.config import Config as ViewConfig
 from view.data.event import Event as EventData
 from view.data.player import Player as PlayerData
 
@@ -34,7 +35,7 @@ env = Environment(
 )
 
 template = env.get_template('testbed/try_event.html')
-html = template.render(view=view, loc=Loc())
+html = template.render(view=view, config=ViewConfig(), loc=Loc())
 
 with open("test_bed.html", "w") as file:
     file.write(html)

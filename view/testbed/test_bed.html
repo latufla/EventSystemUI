@@ -2,12 +2,12 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Profile</title>
+    <title>Event</title>
 
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.2.13/dist/semantic.min.css">
+   <link rel="stylesheet" href="../../static/node_modules/semantic-ui/semantic.min.css">
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.2.13/dist/semantic.min.js"></script>
+    <script src="../../static/node_modules/jquery/jquery-3.2.1.min.js"></script>
+    <script src="../../static/node_modules/semantic-ui/semantic.min.js"></script>
 </head>
 
 <body>
@@ -19,74 +19,131 @@
     <div class="twelve wide column">
         <div class="ui hidden divider"></div>
 
-        <img class="ui small centered circular image" src="https://pbs.twimg.com/profile_images/606791373593837568/eL5DHK0L.png">
+        <link rel="stylesheet" href="../../static/node_modules/semantic-ui-calendar/dist/calendar.min.css"/>
 
-<h1 class="ui center aligned header">
-    <div class="content">
-        Red Fox
-        <div class="sub header">1000 points</div>
-    </div>
-</h1>
+<script type="text/javascript" src="../../static/node_modules/semantic-ui-calendar/dist/calendar.min.js"></script>
+<script type="text/javascript" src="../../static/node_modules/ckeditor/ckeditor.js"></script>
 
-<div class="ui hidden section divider">
+
+<div style="min-width:400px; max-width:1200px;">
+
+    <form id="main_form" class="ui form error" action="" method="post">
+
+        <div class="inline field">
+            <label>Type</label>
+            <div class="inline field">
+                <div id="type_dropdown" class="ui selection dropdown">
+                    <input name="type" value=Tournament type="hidden">
+                    <i class="dropdown icon"></i>
+                    <div class="default text"></div>
+                    <div class="menu">
+                        
+                        <div class="item" data-value="Lesson"><i class="book icon"></i>Lesson</div>
+                        
+                        <div class="item" data-value="Tournament"><i class="trophy icon"></i>Tournament</div>
+                        
+                        <div class="item" data-value="Game"><i class="game icon"></i>Game</div>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="field">
+            <label>Title</label>
+            <input name="title" placeholder="" value="Lesson 2: Red card" type="text">
+        </div>
+
+        <div class="field">
+            <label>Short description</label>
+            <textarea id="description_short" name="description_short"
+                      placeholder="">Being a good red citizen</textarea>
+        </div>
+
+        <div class="field">
+            <label>Description</label>
+            <textarea id="description" name="description" placeholder=""></textarea>
+        </div>
+
+        <div class="field">
+            <label>Start at</label>
+            <div class="inline field">
+                <div class="ui calendar" id="date_start">
+                    <div class="ui input right icon">
+                        <i class="calendar icon"></i>
+                        <input name="date_start" type="text" placeholder="Date" value="">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="inline field">
+            <label>Max Participants</label>
+            <div class="inline field">
+                <input name="max_participants" type="text" value="10">
+            </div>
+        </div>
+
+        <div class="ui error message"></div>
+
+        <input type="text" name="event_id" value="2" style="display: none">
+        <button class="ui primary right floated button" type="submit" style="min-width: 150px;">Save</button>
+
+    </form>
+
 </div>
 
-<h4 class="ui horizontal divider header">
-    Events history
-</h4>
+<script type="text/javascript">
+    function addZero(i) {
+        if (i < 10) {
+            i = "0" + i;
+        }
+        return i;
+    }
+
+    $('#date_start').calendar({
+        monthFirst: false,
+        formatter: {
+            date: function (d, settings) {
+                if (!d) return '';
+                var day = d.getDate();
+                var month = d.getMonth() + 1;
+                var year = d.getFullYear();
+                return addZero(day) + '.' + addZero(month) + '.' + year;
+            },
+            time: function (t, settings) {
+                var hour = addZero(t.getHours());
+                var min = addZero(t.getMinutes());
+                return hour + ':' + min;
+            }
+        }
+    });
+
+    $('#main_form')
+        .form({
+            fields: {
+                name: {
+                    identifier: 'date_start',
+                    rules: [
+                        {
+                            type: 'empty',
+                            prompt: 'Enter event date'
+                        }
+                    ]
+                }
+            }
+        });
+
+    $('#type_dropdown').dropdown();
+
+</script>
 
 
-<div class="ui large feed">
-    
-    <div class="ui hidden divider"></div>
-    <div class="event">
-        <div class="content">
-            <div class="summary">
-                Participated at <a href='http://google.com'>Game 1: Starters</a>
-                <div class="date">2018-01-06</div>
-            </div>
-            <div class="extra text">
-                
-                    You took <strong>1</strong> place
-                    
-                        and get <strong>1000</strong> points
-                    
-                
-            </div>
-        </div>
-    </div>
-    
-    <div class="ui hidden divider"></div>
-    <div class="event">
-        <div class="content">
-            <div class="summary">
-                Participated at <a href='http://vk.com'>Tournament: Starters</a>
-                <div class="date">2018-01-13</div>
-            </div>
-            <div class="extra text">
-                
-            </div>
-        </div>
-    </div>
-    
-    <div class="ui hidden divider"></div>
-    <div class="event">
-        <div class="content">
-            <div class="summary">
-                Participated at <a href='http://ya.com'>Lesson 2: Red card</a>
-                <div class="date">2018-01-08</div>
-            </div>
-            <div class="extra text">
-                
-                    You took <strong>1</strong> place
-                    
-                
-            </div>
-        </div>
-    </div>
-    
-</div>
-
+<script type="text/javascript">
+    CKEDITOR.replace('description_short');
+    CKEDITOR.replace('description');
+</script>
 
     </div>
     <div class="two wide column"></div>

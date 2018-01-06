@@ -2,6 +2,7 @@ from datetime import datetime, timedelta
 
 from jinja2 import Environment, PackageLoader, select_autoescape
 
+from view.config import Config as ViewConfig
 from view.data.event import Event as EventData
 from view.enum.event_label import EventLabels
 from view.loc import Loc
@@ -20,7 +21,7 @@ env = Environment(
 )
 
 template = env.get_template('testbed/try_event_edit.html')
-html = template.render(view=view, loc=Loc())
+html = template.render(view=view, config=ViewConfig(), loc=Loc())
 
 with open("test_bed.html", "w") as file:
     file.write(html)

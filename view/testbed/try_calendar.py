@@ -1,6 +1,7 @@
 from datetime import datetime, timedelta
 from jinja2 import Environment, PackageLoader, select_autoescape
 
+from view.config import Config as ViewConfig
 from view.data.event import Event as EventData
 from view.data.month import Month as MonthData
 from view.data.pass_card import PassCard as PassCardData
@@ -45,7 +46,7 @@ env = Environment(
 )
 
 template = env.get_template('testbed/try_calendar.html')
-html = template.render(view=view, loc=Loc())
+html = template.render(view=view, config=ViewConfig(), loc=Loc())
 
 with open("test_bed.html", "w") as file:
     file.write(html)
