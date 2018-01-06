@@ -12,19 +12,17 @@ from view.enum.event_label import EventLabels
 
 now = datetime.utcnow()
 
-events = [
-    EventData(0, "Game 1: Starters", datetime(2018, 1, 6), EventLabels.GAME, "http://google.com"),
-    EventData(1, "Lesson 2: Red card", now + timedelta(days=2), EventLabels.LESSON, "http://ya.com"),
-    EventData(3, "Tournament: Starters", now + timedelta(days=7, hours=4), EventLabels.TOURNAMENT, "http://vk.com")
+events_history = [
+    EventResult(EventData(0, "Game 1: Starters", datetime(2018, 1, 6), EventLabels.GAME, "http://google.com"),
+                1, 1000, True),
+    EventResult(EventData(2, "Tournament: Starters", now + timedelta(days=7, hours=4), EventLabels.TOURNAMENT, "http://vk.com")),
+    EventResult(EventData(1, "Lesson 2: Red card", now + timedelta(days=2), EventLabels.LESSON, "http://ya.com"),
+                1, 500, False)
 ]
-
-events_history = list(
-    map(lambda e: EventResult(e, 1, 1000, True), events)
-)
 
 player = Player(1, "Red Fox", "", "https://pbs.twimg.com/profile_images/606791373593837568/eL5DHK0L.png")
 player.points = 1000
-view = View(player, [])
+view = View(player, events_history)
 
 env = Environment(
     loader=PackageLoader('PyTest', 'templates'),

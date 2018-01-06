@@ -8,9 +8,11 @@
                 <div class="date">{{r.event.start_date}}</div>
             </div>
             <div class="extra text">
-                {{loc(loc.EVENTS_HISTORY_TOOK_PLACE, r.place)|safe}}
-                {% if r.rewarded %}
-                {{loc(loc.EVENTS_HISTORY_AND_REWARD, r.reward)|safe}}
+                {% if r.place %}
+                    {{loc(loc.EVENTS_HISTORY_TOOK_PLACE, r.place)|safe}}
+                    {% if r.reward and r.rewarded %}
+                        {{loc(loc.EVENTS_HISTORY_AND_REWARD, r.reward)|safe}}
+                    {% endif %}
                 {% endif %}
             </div>
         </div>
